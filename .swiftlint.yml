@@ -3,6 +3,9 @@ disabled_rules:
   - identifier_name
   - cyclomatic_complexity
   - comment_spacing
+  - multiline_parameters
+  - switch_case_on_newline
+  - switch_case_alignment
 
 opt_in_rules:
   - closure_end_indentation
