@@ -7,4 +7,4 @@ ViewModels are responsible to create between ViewController and UseCases/Coordin
 Coordinators are responsible to handle navigation and flow
 
 
-Dependency Injection Containers are used in order to be able to Inject the ViewModels to ViewControllers. 
+Dependency Injection Containers are used in order to be able to Inject the ViewModels to ViewControllers
