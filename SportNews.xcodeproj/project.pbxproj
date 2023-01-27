@@ -113,13 +113,11 @@
 		54FFA69F29845AEC0064E415 /* SportNews */ = {
 			isa = PBXGroup;
 			children = (
+				54FFA6E8298468010064E415 /* Supporting */,
 				54FFA6D2298463440064E415 /* Resources */,
 				54FFA6D1298463210064E415 /* Generated */,
-				54FFA6A029845AED0064E415 /* AppDelegate.swift */,
-				54FFA6A229845AED0064E415 /* SceneDelegate.swift */,
 				54FFA6A429845AED0064E415 /* ViewController.swift */,
 				54FFA6A629845AED0064E415 /* Main.storyboard */,
-				54FFA6A929845AEE0064E415 /* Assets.xcassets */,
 				54FFA6AB29845AEE0064E415 /* LaunchScreen.storyboard */,
 			);
 			path = SportNews;
@@ -155,6 +153,7 @@
 		54FFA6D2298463440064E415 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				54FFA6A929845AEE0064E415 /* Assets.xcassets */,
 				54FFA6D62984650D0064E415 /* swiftgen.yml */,
 				54FFA6AE29845AEE0064E415 /* Info.plist */,
 				54FFA6D8298465A70064E415 /* Images.xcassets */,
@@ -162,6 +161,15 @@
 				54FFA6E02984660D0064E415 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		54FFA6E8298468010064E415 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				54FFA6A029845AED0064E415 /* AppDelegate.swift */,
+				54FFA6A229845AED0064E415 /* SceneDelegate.swift */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
