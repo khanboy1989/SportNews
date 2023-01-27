@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 import Combine
+/**
+ BaseViewController handles the common implementation for each viewcontroller
+ in order to avoid code duplication for example show alert in case any error
+ or for each view controller setting the color or etc.
+ */
 class BaseViewController: UIViewController, Alertable {
  
     var disposeBag = Set<AnyCancellable>()
