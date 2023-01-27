@@ -9,10 +9,10 @@ import Foundation
 
 //ScreenState is used in order to update the screen
 //for each request
-enum ScreenState<T>{
+enum ScreenState<T> {
     case loading
-    case error(error:String)
+    case error(error: String)
     case noData
-    case succes(data:T)
+    case succes(data: T)
     case finished
 }

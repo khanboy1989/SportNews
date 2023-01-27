@@ -38,13 +38,11 @@ class BaseViewController: UIViewController, Alertable {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        disposeBag.forEach{$0.cancel()}
+        disposeBag.forEach { $0.cancel() }
         disposeBag.removeAll()
     }
     
-    open func didReceiveNetworkError(error:String){
+    open func didReceiveNetworkError(error: String) {
         showAlert(message: error)
     }
-
 }
-

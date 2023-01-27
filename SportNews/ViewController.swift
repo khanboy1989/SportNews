@@ -13,7 +13,4 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print(L10n.test)
     }
-
-
 }
-
