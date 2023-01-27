@@ -16,6 +16,13 @@
 		54FFA6B829845AEE0064E415 /* SportNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6B729845AEE0064E415 /* SportNewsTests.swift */; };
 		54FFA6C229845AEF0064E415 /* SportNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6C129845AEF0064E415 /* SportNewsUITests.swift */; };
 		54FFA6C429845AEF0064E415 /* SportNewsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6C329845AEF0064E415 /* SportNewsUITestsLaunchTests.swift */; };
+		54FFA6D72984650D0064E415 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6D62984650D0064E415 /* swiftgen.yml */; };
+		54FFA6D9298465A70064E415 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6D8298465A70064E415 /* Images.xcassets */; };
+		54FFA6DB298465B90064E415 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6DA298465B90064E415 /* Colors.xcassets */; };
+		54FFA6DE2984660D0064E415 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6E02984660D0064E415 /* Localizable.strings */; };
+		54FFA6E42984664B0064E415 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6E12984664B0064E415 /* Strings.swift */; };
+		54FFA6E52984664B0064E415 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6E22984664B0064E415 /* Info.swift */; };
+		54FFA6E62984664B0064E415 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6E32984664B0064E415 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		54FFA6BD29845AEF0064E415 /* SportNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FFA6C129845AEF0064E415 /* SportNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportNewsUITests.swift; sourceTree = "<group>"; };
 		54FFA6C329845AEF0064E415 /* SportNewsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportNewsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		54FFA6D62984650D0064E415 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		54FFA6D8298465A70064E415 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		54FFA6DA298465B90064E415 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		54FFA6DF2984660D0064E415 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		54FFA6E12984664B0064E415 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		54FFA6E22984664B0064E415 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		54FFA6E32984664B0064E415 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +113,14 @@
 		54FFA69F29845AEC0064E415 /* SportNews */ = {
 			isa = PBXGroup;
 			children = (
+				54FFA6D2298463440064E415 /* Resources */,
+				54FFA6D1298463210064E415 /* Generated */,
 				54FFA6A029845AED0064E415 /* AppDelegate.swift */,
 				54FFA6A229845AED0064E415 /* SceneDelegate.swift */,
 				54FFA6A429845AED0064E415 /* ViewController.swift */,
 				54FFA6A629845AED0064E415 /* Main.storyboard */,
 				54FFA6A929845AEE0064E415 /* Assets.xcassets */,
 				54FFA6AB29845AEE0064E415 /* LaunchScreen.storyboard */,
-				54FFA6AE29845AEE0064E415 /* Info.plist */,
 			);
 			path = SportNews;
 			sourceTree = "<group>";
@@ -127,6 +142,28 @@
 			path = SportNewsUITests;
 			sourceTree = "<group>";
 		};
+		54FFA6D1298463210064E415 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				54FFA6E32984664B0064E415 /* Assets.swift */,
+				54FFA6E22984664B0064E415 /* Info.swift */,
+				54FFA6E12984664B0064E415 /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		54FFA6D2298463440064E415 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54FFA6D62984650D0064E415 /* swiftgen.yml */,
+				54FFA6AE29845AEE0064E415 /* Info.plist */,
+				54FFA6D8298465A70064E415 /* Images.xcassets */,
+				54FFA6DA298465B90064E415 /* Colors.xcassets */,
+				54FFA6E02984660D0064E415 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +174,7 @@
 				54FFA69929845AEC0064E415 /* Sources */,
 				54FFA69A29845AEC0064E415 /* Frameworks */,
 				54FFA69B29845AEC0064E415 /* Resources */,
+				54FFA6D0298462510064E415 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -232,6 +270,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				54FFA6AD29845AEE0064E415 /* LaunchScreen.storyboard in Resources */,
+				54FFA6D9298465A70064E415 /* Images.xcassets in Resources */,
+				54FFA6D72984650D0064E415 /* swiftgen.yml in Resources */,
+				54FFA6DE2984660D0064E415 /* Localizable.strings in Resources */,
+				54FFA6DB298465B90064E415 /* Colors.xcassets in Resources */,
 				54FFA6AA29845AEE0064E415 /* Assets.xcassets in Resources */,
 				54FFA6A829845AED0064E415 /* Main.storyboard in Resources */,
 			);
@@ -253,6 +295,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		54FFA6D0298462510064E415 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PROJECT_DIR\"/swiftgen/bin/swiftgen config lint\n\"$PROJECT_DIR\"/swiftgen/bin/swiftgen config run\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		54FFA69929845AEC0064E415 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,6 +323,9 @@
 			files = (
 				54FFA6A529845AED0064E415 /* ViewController.swift in Sources */,
 				54FFA6A129845AED0064E415 /* AppDelegate.swift in Sources */,
+				54FFA6E62984664B0064E415 /* Assets.swift in Sources */,
+				54FFA6E42984664B0064E415 /* Strings.swift in Sources */,
+				54FFA6E52984664B0064E415 /* Info.swift in Sources */,
 				54FFA6A329845AED0064E415 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +377,14 @@
 				54FFA6AC29845AEE0064E415 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		54FFA6E02984660D0064E415 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54FFA6DF2984660D0064E415 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -441,7 +515,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -470,7 +544,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
