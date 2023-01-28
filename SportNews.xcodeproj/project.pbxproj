@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02EF0C94C24F808B94C15607 /* Pods_SportNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32333B1A65578E793CCA19F /* Pods_SportNews.framework */; };
+		544F23CF298531D40033E920 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 544F23CE298531D40033E920 /* .swiftlint.yml */; };
 		54C3312829847F0700CC7F16 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312729847F0700CC7F16 /* BaseViewController.swift */; };
 		54C3312B29847F5500CC7F16 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312A29847F5500CC7F16 /* Alertable.swift */; };
 		54C3312E2984809E00CC7F16 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312D2984809E00CC7F16 /* ScreenState.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		1EF35DE3BD06CC3968A254E8 /* Pods-SportNews-SportNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews-SportNewsUITests.debug.xcconfig"; path = "Target Support Files/Pods-SportNews-SportNewsUITests/Pods-SportNews-SportNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B9B65007BCA6E0DCA4A44C0 /* Pods-SportNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNewsTests.release.xcconfig"; path = "Target Support Files/Pods-SportNewsTests/Pods-SportNewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		544F23CE298531D40033E920 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		54AF32EAEA689095E097E9F9 /* Pods-SportNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.debug.xcconfig"; path = "Target Support Files/Pods-SportNews/Pods-SportNews.debug.xcconfig"; sourceTree = "<group>"; };
 		54C3312729847F0700CC7F16 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		54C3312A29847F5500CC7F16 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 		54FFA6D2298463440064E415 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				544F23CE298531D40033E920 /* .swiftlint.yml */,
 				54FFA6A929845AEE0064E415 /* Assets.xcassets */,
 				54FFA6D62984650D0064E415 /* swiftgen.yml */,
 				54FFA6AE29845AEE0064E415 /* Info.plist */,
@@ -457,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544F23CF298531D40033E920 /* .swiftlint.yml in Resources */,
 				54FFA6AD29845AEE0064E415 /* LaunchScreen.storyboard in Resources */,
 				54FFA6D9298465A70064E415 /* Images.xcassets in Resources */,
 				54FFA6D72984650D0064E415 /* swiftgen.yml in Resources */,

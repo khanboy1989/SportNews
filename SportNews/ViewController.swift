@@ -11,6 +11,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(L10n.test)
+        printIfDebug(L10n.test)
     }
 }

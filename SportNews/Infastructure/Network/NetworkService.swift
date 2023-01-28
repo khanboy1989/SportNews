@@ -119,10 +119,10 @@ public final class DefaultNetworkErrorLogger: NetworkErrorLogger {
     public init() {}
     
     public func log(request: URLRequest) {
-        print("-------------")
-        print("request: \(request.url!)")
-        print("headers: \(request.allHTTPHeaderFields!)")
-        print("method: \(request.httpMethod!)")
+        printIfDebug("-------------")
+        printIfDebug("request: \(request.url!)")
+        printIfDebug("headers: \(request.allHTTPHeaderFields!)")
+        printIfDebug("method: \(request.httpMethod!)")
         if let httpBody = request.httpBody, let result = ((try? JSONSerialization.jsonObject(with: httpBody, options: []) as? [String: AnyObject]) as [String: AnyObject]??) {
             printIfDebug("body: \(String(describing: result))")
         } else if let httpBody = request.httpBody, let resultString = String(data: httpBody, encoding: .utf8) {
@@ -169,6 +169,7 @@ extension Dictionary where Key == String {
 
 func printIfDebug(_ string: String) {
     #if DEBUG
+    //swiftlint:disable next no_direct_standard_out_logs
     print(string)
     #endif
 }
