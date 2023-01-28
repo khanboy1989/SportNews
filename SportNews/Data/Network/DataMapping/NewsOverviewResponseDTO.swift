@@ -51,21 +51,65 @@ struct Esports: Decodable {
     let data: SportData
 }
 
-struct SportData: Decodable {
+struct SportData: Decodable, Hashable {
+
     let id: Int
     let title: String
     let text: String
-    let date: String
+    let dateString: String
     let url: String
     let app: String
     let image: Image
     let category: Category
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case text
+        case dateString = "date"
+        case url
+        case app
+        case image
+        case category
+    }
+    
+    static func == (lhs: SportData, rhs: SportData) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    var date: Date? {
+        dateString.toDate(withFormat: "yyyy-MM-dd'T'HH:mm:ssZ")
+    }
+    
+    var readableDate: String {
+        guard let date = date else { return ""}
+        // Create Date Formatter
+        let dateFormatter = DateFormatter()
+
+        // Set Date Format
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+
+        // Convert Date to String
+        return dateFormatter.string(from: date)
+    }
 }
 
 struct Image: Decodable {
     let small: String
     let medium: String
     let large: String
+    
+    var imageMediumUrl: URL? {
+        return URL(string: medium)
+    }
+    
+    var imageLargeUrl: URL? {
+        return URL(string: large)
+    }
 }
 
 struct Category: Decodable {

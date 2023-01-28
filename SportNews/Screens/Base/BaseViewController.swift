@@ -23,6 +23,7 @@ class BaseViewController: UIViewController, Alertable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         executeRequests()
+        bindViewModel()
     }
     
     override func viewDidLoad() {
@@ -33,6 +34,8 @@ class BaseViewController: UIViewController, Alertable {
     open func executeRequests() {}
     
     open func configureObservers() {}
+    
+    open func bindViewModel() {}
     
     open func didReceiveNetworkError(error: String) {
         showAlert(message: error)

@@ -13,6 +13,6 @@ class BaseNavigationController: UINavigationController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .darkContent
     }
 }

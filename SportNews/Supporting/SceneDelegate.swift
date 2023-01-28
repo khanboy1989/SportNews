@@ -27,10 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         appFlowCoordinator?.start()
         
-
         self.window = window
         self.window?.makeKeyAndVisible()
-       
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

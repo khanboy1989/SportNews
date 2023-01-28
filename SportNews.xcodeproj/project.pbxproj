@@ -30,6 +30,9 @@
 		544F242D29855EA50033E920 /* NewsOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544F242C29855EA50033E920 /* NewsOverviewViewController.xib */; };
 		544F242F298560880033E920 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F242E298560880033E920 /* Observable.swift */; };
 		544F2431298568B90033E920 /* NewsOverviewFlowCoordinatorDependecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F2430298568B90033E920 /* NewsOverviewFlowCoordinatorDependecies.swift */; };
+		544F24352985924D0033E920 /* NewOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F24332985924D0033E920 /* NewOverviewTableViewCell.swift */; };
+		544F24362985924D0033E920 /* NewOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544F24342985924D0033E920 /* NewOverviewTableViewCell.xib */; };
+		544F243A298592F50033E920 /* UITableViewCell + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F2439298592F50033E920 /* UITableViewCell + Extensions.swift */; };
 		54C3312829847F0700CC7F16 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312729847F0700CC7F16 /* BaseViewController.swift */; };
 		54C3312B29847F5500CC7F16 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312A29847F5500CC7F16 /* Alertable.swift */; };
 		54C3312E2984809E00CC7F16 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312D2984809E00CC7F16 /* ScreenState.swift */; };
@@ -48,8 +51,6 @@
 		54C3315029848E4500CC7F16 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3314F29848E4500CC7F16 /* Encodable+Extensions.swift */; };
 		54FFA6A129845AED0064E415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6A029845AED0064E415 /* AppDelegate.swift */; };
 		54FFA6A329845AED0064E415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6A229845AED0064E415 /* SceneDelegate.swift */; };
-		54FFA6A529845AED0064E415 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6A429845AED0064E415 /* ViewController.swift */; };
-		54FFA6A829845AED0064E415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6A629845AED0064E415 /* Main.storyboard */; };
 		54FFA6AA29845AEE0064E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6A929845AEE0064E415 /* Assets.xcassets */; };
 		54FFA6AD29845AEE0064E415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FFA6AB29845AEE0064E415 /* LaunchScreen.storyboard */; };
 		54FFA6B829845AEE0064E415 /* SportNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA6B729845AEE0064E415 /* SportNewsTests.swift */; };
@@ -108,6 +109,9 @@
 		544F242C29855EA50033E920 /* NewsOverviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsOverviewViewController.xib; sourceTree = "<group>"; };
 		544F242E298560880033E920 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		544F2430298568B90033E920 /* NewsOverviewFlowCoordinatorDependecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsOverviewFlowCoordinatorDependecies.swift; sourceTree = "<group>"; };
+		544F24332985924D0033E920 /* NewOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		544F24342985924D0033E920 /* NewOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOverviewTableViewCell.xib; sourceTree = "<group>"; };
+		544F2439298592F50033E920 /* UITableViewCell + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extensions.swift"; sourceTree = "<group>"; };
 		54AF32EAEA689095E097E9F9 /* Pods-SportNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.debug.xcconfig"; path = "Target Support Files/Pods-SportNews/Pods-SportNews.debug.xcconfig"; sourceTree = "<group>"; };
 		54C3312729847F0700CC7F16 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		54C3312A29847F5500CC7F16 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
@@ -128,8 +132,6 @@
 		54FFA69D29845AEC0064E415 /* SportNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FFA6A029845AED0064E415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54FFA6A229845AED0064E415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		54FFA6A429845AED0064E415 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		54FFA6A729845AED0064E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54FFA6A929845AEE0064E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54FFA6AC29845AEE0064E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54FFA6AE29845AEE0064E415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -301,11 +303,37 @@
 		544F242729855E1D0033E920 /* NewsOverview */ = {
 			isa = PBXGroup;
 			children = (
+				544F2432298591A70033E920 /* Cells */,
 				544F242829855E420033E920 /* NewsOverviewViewController.swift */,
 				544F242A29855E6E0033E920 /* NewsOverviewViewModel.swift */,
 				544F242C29855EA50033E920 /* NewsOverviewViewController.xib */,
 			);
 			path = NewsOverview;
+			sourceTree = "<group>";
+		};
+		544F2432298591A70033E920 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				544F24332985924D0033E920 /* NewOverviewTableViewCell.swift */,
+				544F24342985924D0033E920 /* NewOverviewTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		544F2437298592D40033E920 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				544F2438298592E00033E920 /* Utils */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		544F2438298592E00033E920 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				544F2439298592F50033E920 /* UITableViewCell + Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		54C3312529847EE600CC7F16 /* Screens */ = {
@@ -440,6 +468,7 @@
 		54FFA69F29845AEC0064E415 /* SportNews */ = {
 			isa = PBXGroup;
 			children = (
+				544F2437298592D40033E920 /* Views */,
 				544F23FC29854A2B0033E920 /* Data */,
 				544F23F8298549BC0033E920 /* Domain */,
 				544F23F32985493B0033E920 /* Common */,
@@ -450,8 +479,6 @@
 				54FFA6E8298468010064E415 /* Supporting */,
 				54FFA6D2298463440064E415 /* Resources */,
 				54FFA6D1298463210064E415 /* Generated */,
-				54FFA6A429845AED0064E415 /* ViewController.swift */,
-				54FFA6A629845AED0064E415 /* Main.storyboard */,
 			);
 			path = SportNews;
 			sourceTree = "<group>";
@@ -531,6 +558,7 @@
 				54FFA69B29845AEC0064E415 /* Resources */,
 				54FFA6D0298462510064E415 /* SwiftGen */,
 				54C331312984867500CC7F16 /* SwiftLint */,
+				507424AB0E79F984E29729EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -568,6 +596,7 @@
 				54FFA6B929845AEF0064E415 /* Sources */,
 				54FFA6BA29845AEF0064E415 /* Frameworks */,
 				54FFA6BB29845AEF0064E415 /* Resources */,
+				34BBE09217C9188AC2C9252C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -632,10 +661,10 @@
 				54FFA6AD29845AEE0064E415 /* LaunchScreen.storyboard in Resources */,
 				54FFA6D9298465A70064E415 /* Images.xcassets in Resources */,
 				54FFA6D72984650D0064E415 /* swiftgen.yml in Resources */,
+				544F24362985924D0033E920 /* NewOverviewTableViewCell.xib in Resources */,
 				54FFA6DE2984660D0064E415 /* Localizable.strings in Resources */,
 				54FFA6DB298465B90064E415 /* Colors.xcassets in Resources */,
 				54FFA6AA29845AEE0064E415 /* Assets.xcassets in Resources */,
-				54FFA6A829845AED0064E415 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +685,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		34BBE09217C9188AC2C9252C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportNews-SportNewsUITests/Pods-SportNews-SportNewsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportNews-SportNewsUITests/Pods-SportNews-SportNewsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportNews-SportNewsUITests/Pods-SportNews-SportNewsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		467401051222BB1DA69A15D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -676,6 +722,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		507424AB0E79F984E29729EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportNews/Pods-SportNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportNews/Pods-SportNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportNews/Pods-SportNews-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		54C331312984867500CC7F16 /* SwiftLint */ = {
@@ -767,13 +830,13 @@
 			files = (
 				544F240D29854FF90033E920 /* NewsOverviewRepository.swift in Sources */,
 				54C3313D29848C7700CC7F16 /* DataTransferService.swift in Sources */,
-				54FFA6A529845AED0064E415 /* ViewController.swift in Sources */,
 				544F240F298550470033E920 /* DefaultNewsOverviewRepository.swift in Sources */,
 				544F240B29854E3D0033E920 /* NewsOverviewResponseDTO.swift in Sources */,
 				54C3314A29848DD800CC7F16 /* EndPoint.swift in Sources */,
 				54FFA6A129845AED0064E415 /* AppDelegate.swift in Sources */,
 				54FFA6E62984664B0064E415 /* Assets.swift in Sources */,
 				54C33139298489C900CC7F16 /* AppConfiguration.swift in Sources */,
+				544F243A298592F50033E920 /* UITableViewCell + Extensions.swift in Sources */,
 				54C3314429848D8600CC7F16 /* BodyEncoding.swift in Sources */,
 				54C331302984822800CC7F16 /* LoadingView.swift in Sources */,
 				544F23F0298548DB0033E920 /* Coordinator.swift in Sources */,
@@ -805,6 +868,7 @@
 				54C3315029848E4500CC7F16 /* Encodable+Extensions.swift in Sources */,
 				54C3314E29848E2E00CC7F16 /* Dictionary+Extensions.swift in Sources */,
 				54C3314229848D4000CC7F16 /* ResponseDecoding.swift in Sources */,
+				544F24352985924D0033E920 /* NewOverviewTableViewCell.swift in Sources */,
 				54C3312E2984809E00CC7F16 /* ScreenState.swift in Sources */,
 				54FFA6A329845AED0064E415 /* SceneDelegate.swift in Sources */,
 			);
@@ -843,14 +907,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		54FFA6A629845AED0064E415 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				54FFA6A729845AED0064E415 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		54FFA6AB29845AEE0064E415 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -997,7 +1053,7 @@
 				INFOPLIST_FILE = SportNews/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1026,7 +1082,7 @@
 				INFOPLIST_FILE = SportNews/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
