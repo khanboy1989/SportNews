@@ -18,4 +18,10 @@ class AppDIContainer {
         let apiDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(networkService: apiDataNetwork)
     }()
+    
+    //MARK: - DIContainer of Scenes
+    func makeNewsOverviewDIContainer() -> NewsOverviewSceneDIContainer {
+        let dependecies = NewsOverviewSceneDIContainer.Dependecies(apiDataTransfer: apiDataTransferService)
+        return NewsOverviewSceneDIContainer(dependecies: dependecies)
+    }
 }

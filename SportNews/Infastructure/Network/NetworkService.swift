@@ -166,10 +166,3 @@ extension Dictionary where Key == String {
         return string
     }
 }
-
-func printIfDebug(_ string: String) {
-    #if DEBUG
-    //swiftlint:disable next no_direct_standard_out_logs
-    print(string)
-    #endif
-}
