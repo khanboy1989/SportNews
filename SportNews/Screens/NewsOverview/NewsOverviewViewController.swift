@@ -111,7 +111,6 @@ final class NewsOverviewViewController: BaseViewController {
         
         tableViewDataSource.apply(snapshot, animatingDifferences: true, completion: {
             self.tableView.reloadData()
-            
         })
     }
     //MARK: - END of Methods
