@@ -10,8 +10,22 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
-  /// Test
-  internal static let test = L10n.tr("Localizable", "test")
+  /// Details
+  internal static let details = L10n.tr("Localizable", "details")
+  /// Esports
+  internal static let esports = L10n.tr("Localizable", "esports")
+  /// Fussball
+  internal static let football = L10n.tr("Localizable", "football")
+  /// Motor Sport
+  internal static let motorsport = L10n.tr("Localizable", "motorsport")
+  /// News
+  internal static let news = L10n.tr("Localizable", "news")
+  /// Selected item cannot be displayed at this time please try later again.
+  internal static let selectedItemError = L10n.tr("Localizable", "selectedItemError")
+  /// Sport Mix
+  internal static let sportmix = L10n.tr("Localizable", "sportmix")
+  /// Winter Sport
+  internal static let winterSport = L10n.tr("Localizable", "winterSport")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

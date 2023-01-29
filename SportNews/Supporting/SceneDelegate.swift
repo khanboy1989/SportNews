@@ -11,14 +11,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    //MARK: - Initial Parameters at the Top Level
+    private let appDiContainer = AppDIContainer()
+    private var appFlowCoordinator: AppFlowCoordinator?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
       
+        //Adjust the navigation bar appearance
+        AppAppearance.setupAppearance()
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
+        let navigationController = BaseNavigationController()
+        
+        //set the rootview controller for the starting flow
+        window.rootViewController = navigationController
+        
+        //init the appflow with UINavigationController
+        appFlowCoordinator = AppFlowCoordinator(appDIContainer: appDiContainer, navigationController: navigationController)
+    
+        //start the main flow
+        appFlowCoordinator?.start()
         
         self.window = window
         self.window?.makeKeyAndVisible()
-       
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

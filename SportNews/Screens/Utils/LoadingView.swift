@@ -16,7 +16,7 @@ public class LoadingView {
             if spinner == nil, let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
                 let frame = UIScreen.main.bounds
                 let spinner = UIActivityIndicatorView(frame: frame)
-                spinner.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+                spinner.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                 spinner.style = UIActivityIndicatorView.Style.large
                 window.addSubview(spinner)
                 

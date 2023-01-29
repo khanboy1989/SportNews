@@ -1,33 +1,42 @@
-disabled_rules:
-  - trailing_whitespace
-  - identifier_name
-  - cyclomatic_complexity
-  - comment_spacing
-
-opt_in_rules:
-  - closure_end_indentation
-  - closure_spacing
-  - contains_over_first_not_nil
-  - empty_count
-  - empty_string
-  - fallthrough
-  - first_where
-  - literal_expression_end_indentation
-  - modifier_order
-  - multiline_function_chains
-  - multiline_parameters
+only_rules:
+  - colon
+  - fatal_error_message
+  - implicitly_unwrapped_optional
+  - legacy_cggeometry_functions
+  - legacy_constant
+  - legacy_constructor
+  - legacy_nsgeometry_functions
   - operator_usage_whitespace
-  - private_action
-  - private_outlet
-  - switch_case_on_newline
-  - unavailable_function
+  - return_arrow_whitespace
+  - trailing_newline
+  - unused_optional_binding
+  - vertical_whitespace
+  - void_return
+  - custom_rules
 
 excluded:
+  - Carthage
   - Pods
-  - build*/
 
-# Custom Rules
-line_length: 200
-file_length: 550
-function_body_length: 100
-type_body_length: 300
+colon:
+  apply_to_dictionaries: false
+
+indentation: 2
+
+custom_rules:
+  no_objcMembers:
+    name: "@objcMembers"
+    regex: "@objcMembers"
+    message: "Explicitly use @objc on each member you want to expose to Objective-C"
+    severity: error
+  no_direct_standard_out_logs:
+    name: "Writing log messages directly to standard out is disallowed"
+    regex: "(\\bprint|\\bdebugPrint|\\bdump|Swift\\.print|Swift\\.debugPrint|Swift\\.dump)\\s*\\("
+    match_kinds:
+    - identifier
+    message: "Don't commit `print(…)`, `debugPrint(…)`, or `dump(…)` as they write to standard out in release. Either log to a dedicated logging system or silence this warning in debug-only scenarios explicitly using `// swiftlint:disable:next no_direct_standard_out_logs`"
+    severity: warning
+    line_length: 200
+    file_length: 550
+    function_body_length: 100
+    type_body_length: 300
