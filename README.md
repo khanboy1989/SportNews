@@ -44,3 +44,9 @@ Launch the application and main screen will be appear if you have the internet c
 - Motor Sports
 - Sport Mix
 - Esports
+
+At the top of the page you will be able to see the categories depending on the selection of the category tableview will filter the specific category. You are free to select All categories again.
+
+<br/>
+
+<h1>Test</h1>
