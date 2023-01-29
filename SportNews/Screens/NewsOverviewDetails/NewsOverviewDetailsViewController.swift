@@ -50,6 +50,7 @@ final class NewsOverviewDetailsViewController: BaseViewController {
         super.configureObservers()
         viewModel?.screenTitle
            .observe(on: self) { [weak self] title in
+            //init the title for selected item
            self?.title = title
        }
         viewModel?.urlRequest

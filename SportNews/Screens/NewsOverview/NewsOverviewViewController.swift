@@ -26,6 +26,8 @@ final class NewsOverviewViewController: BaseViewController {
         }
     }
     
+    @IBOutlet private weak var customSegmentsView: CustomSegmentsView!
+    
     // MARK: - Initializer
     init(viewModel: NewsOverviewViewModel) {
         self.viewModel = viewModel
@@ -34,6 +36,13 @@ final class NewsOverviewViewController: BaseViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - UIViewController Lifecycle events
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindUIComponents()
+        viewModel?.viewDidLoad()
     }
     
     /*
@@ -60,6 +69,7 @@ final class NewsOverviewViewController: BaseViewController {
             case let.succes(data):
                 LoadingView.hide()
                 self?.updateNewOverviews(items: data)
+
             case .loading:
                 LoadingView.show()
             case let .error(error):
@@ -73,18 +83,35 @@ final class NewsOverviewViewController: BaseViewController {
                 break
             }
         }
+        
+        viewModel?.categorySegmentItems.observe(on: self) {[weak self] items in
+            self?.customSegmentsView.setItems(items: items)
+        }
+
+    }
+    
+    private func bindUIComponents() {
+        self.customSegmentsView.onWillChangeSelectedItem = {[weak self] selectedItem in
+            self?.viewModel?.onCategoryItemChange(selectedItem)
+        }
     }
     
     //Updates the newsoverview tableview cell depending on the received full data
     private func updateNewOverviews(items: [DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]) {
         var snapshot = NSDiffableDataSourceSnapshot<DefaultNewsOverviewViewModel.Section, NewOverviewViewModel>()
-        snapshot.appendSections([.fussball, .wintersport, .motorsport, .sportmix, .esports])
-        snapshot.appendItems(items[.fussball] ?? [], toSection: .fussball)
-        snapshot.appendItems(items[.wintersport] ?? [], toSection: .wintersport)
-        snapshot.appendItems(items[.motorsport] ?? [], toSection: .motorsport)
-        snapshot.appendItems(items[.sportmix] ?? [], toSection: .sportmix)
-        snapshot.appendItems(items[.esports] ?? [], toSection: .esports)
-        tableViewDataSource.apply(snapshot, animatingDifferences: true,completion: self.tableView.reloadData)
+        
+        let sections = items.keys.map({ sectionItem -> DefaultNewsOverviewViewModel.Section in
+            return sectionItem
+        })
+        snapshot.appendSections(sections)
+        
+        sections.forEach { sectionItem in
+            snapshot.appendItems(items[sectionItem] ?? [], toSection: sectionItem)
+        }
+        
+        tableViewDataSource.apply(snapshot, animatingDifferences: true, completion: {
+            self.tableView.reloadData()
+        })
     }
     //MARK: - END of Methods
     

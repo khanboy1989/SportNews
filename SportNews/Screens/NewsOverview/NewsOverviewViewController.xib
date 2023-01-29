@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsOverviewViewController" customModule="SportNews" customModuleProvider="target">
             <connections>
+                <outlet property="customSegmentsView" destination="EbO-WJ-f9K" id="gdG-fe-3z5"/>
                 <outlet property="tableView" destination="Wds-i0-SMh" id="b8d-UJ-ykw"/>
                 <outlet property="view" destination="iN0-l3-epB" id="afk-V0-Asu"/>
             </connections>
@@ -19,18 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="22" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wds-i0-SMh">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FiF-LF-7ou">
                     <rect key="frame" x="0.0" y="103" width="393" height="749"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbO-WJ-f9K" customClass="CustomSegmentsView" customModule="SportNews" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="TTR-bp-aEV"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="22" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wds-i0-SMh">
+                            <rect key="frame" x="0.0" y="50" width="393" height="699"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Wds-i0-SMh" secondAttribute="trailing" id="Wha-gg-vIJ"/>
-                <constraint firstItem="Wds-i0-SMh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="aPM-Wh-Jem"/>
-                <constraint firstAttribute="bottom" secondItem="Wds-i0-SMh" secondAttribute="bottom" id="l8b-SR-U6j"/>
-                <constraint firstItem="Wds-i0-SMh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qZL-BE-sQl"/>
+                <constraint firstItem="FiF-LF-7ou" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9S3-7I-k4k"/>
+                <constraint firstItem="FiF-LF-7ou" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="AKM-J0-VPN"/>
+                <constraint firstAttribute="bottom" secondItem="FiF-LF-7ou" secondAttribute="bottom" id="bnm-Vx-i4D"/>
+                <constraint firstAttribute="trailing" secondItem="FiF-LF-7ou" secondAttribute="trailing" id="zao-d9-vZn"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="227" y="-357"/>

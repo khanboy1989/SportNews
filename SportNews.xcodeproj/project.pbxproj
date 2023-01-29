@@ -36,6 +36,11 @@
 		544F24352985924D0033E920 /* NewOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F24332985924D0033E920 /* NewOverviewTableViewCell.swift */; };
 		544F24362985924D0033E920 /* NewOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544F24342985924D0033E920 /* NewOverviewTableViewCell.xib */; };
 		544F243A298592F50033E920 /* UITableViewCell + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F2439298592F50033E920 /* UITableViewCell + Extensions.swift */; };
+		54A595EE2987162C007AF199 /* CustomSegmentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A595ED2987162C007AF199 /* CustomSegmentItemView.swift */; };
+		54A595F0298716E2007AF199 /* CustomSegmentItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A595EF298716E2007AF199 /* CustomSegmentItemView.xib */; };
+		54A595F229871CF7007AF199 /* NibOwnerLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A595F129871CF7007AF199 /* NibOwnerLoadable.swift */; };
+		54A595F52987208D007AF199 /* CustomSegmentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A595F32987208D007AF199 /* CustomSegmentsView.xib */; };
+		54A595F62987208D007AF199 /* CustomSegmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A595F42987208D007AF199 /* CustomSegmentsView.swift */; };
 		54C3312829847F0700CC7F16 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312729847F0700CC7F16 /* BaseViewController.swift */; };
 		54C3312B29847F5500CC7F16 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312A29847F5500CC7F16 /* Alertable.swift */; };
 		54C3312E2984809E00CC7F16 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C3312D2984809E00CC7F16 /* ScreenState.swift */; };
@@ -118,6 +123,11 @@
 		544F24332985924D0033E920 /* NewOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOverviewTableViewCell.swift; sourceTree = "<group>"; };
 		544F24342985924D0033E920 /* NewOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOverviewTableViewCell.xib; sourceTree = "<group>"; };
 		544F2439298592F50033E920 /* UITableViewCell + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extensions.swift"; sourceTree = "<group>"; };
+		54A595ED2987162C007AF199 /* CustomSegmentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentItemView.swift; sourceTree = "<group>"; };
+		54A595EF298716E2007AF199 /* CustomSegmentItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegmentItemView.xib; sourceTree = "<group>"; };
+		54A595F129871CF7007AF199 /* NibOwnerLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibOwnerLoadable.swift; sourceTree = "<group>"; };
+		54A595F32987208D007AF199 /* CustomSegmentsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSegmentsView.xib; sourceTree = "<group>"; };
+		54A595F42987208D007AF199 /* CustomSegmentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentsView.swift; sourceTree = "<group>"; };
 		54AF32EAEA689095E097E9F9 /* Pods-SportNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.debug.xcconfig"; path = "Target Support Files/Pods-SportNews/Pods-SportNews.debug.xcconfig"; sourceTree = "<group>"; };
 		54C3312729847F0700CC7F16 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		54C3312A29847F5500CC7F16 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
@@ -339,6 +349,7 @@
 		544F2437298592D40033E920 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54A595EA29871569007AF199 /* NewsOverviewTableViewHeader */,
 				544F2438298592E00033E920 /* Utils */,
 			);
 			path = Views;
@@ -348,8 +359,36 @@
 			isa = PBXGroup;
 			children = (
 				544F2439298592F50033E920 /* UITableViewCell + Extensions.swift */,
+				54A595F129871CF7007AF199 /* NibOwnerLoadable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		54A595EA29871569007AF199 /* NewsOverviewTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				54A595F42987208D007AF199 /* CustomSegmentsView.swift */,
+				54A595F32987208D007AF199 /* CustomSegmentsView.xib */,
+				54A595EB298715AF007AF199 /* CustomSegmentView */,
+			);
+			path = NewsOverviewTableViewHeader;
+			sourceTree = "<group>";
+		};
+		54A595EB298715AF007AF199 /* CustomSegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				54A595EC298715EF007AF199 /* CustomSegmentItemView */,
+			);
+			path = CustomSegmentView;
+			sourceTree = "<group>";
+		};
+		54A595EC298715EF007AF199 /* CustomSegmentItemView */ = {
+			isa = PBXGroup;
+			children = (
+				54A595ED2987162C007AF199 /* CustomSegmentItemView.swift */,
+				54A595EF298716E2007AF199 /* CustomSegmentItemView.xib */,
+			);
+			path = CustomSegmentItemView;
 			sourceTree = "<group>";
 		};
 		54C3312529847EE600CC7F16 /* Screens */ = {
@@ -677,8 +716,10 @@
 				544F23CF298531D40033E920 /* .swiftlint.yml in Resources */,
 				54FFA6AD29845AEE0064E415 /* LaunchScreen.storyboard in Resources */,
 				54FFA6D9298465A70064E415 /* Images.xcassets in Resources */,
+				54A595F0298716E2007AF199 /* CustomSegmentItemView.xib in Resources */,
 				54FFA6D72984650D0064E415 /* swiftgen.yml in Resources */,
 				544F24362985924D0033E920 /* NewOverviewTableViewCell.xib in Resources */,
+				54A595F52987208D007AF199 /* CustomSegmentsView.xib in Resources */,
 				54FFA6DE2984660D0064E415 /* Localizable.strings in Resources */,
 				54FFA6DB298465B90064E415 /* Colors.xcassets in Resources */,
 				54FFA6AA29845AEE0064E415 /* Assets.xcassets in Resources */,
@@ -873,6 +914,7 @@
 				54C331352984895A00CC7F16 /* BaseNavigationController.swift in Sources */,
 				54C3314029848CFA00CC7F16 /* NetworkService.swift in Sources */,
 				544F2426298558900033E920 /* DefaultNewsOverviewUseCase.swift in Sources */,
+				54A595F229871CF7007AF199 /* NibOwnerLoadable.swift in Sources */,
 				542C33B02986E25000F088FC /* NewsOverviewDetailsViewController.swift in Sources */,
 				544F23F52985497F0033E920 /* Cancellable.swift in Sources */,
 				544F242F298560880033E920 /* Observable.swift in Sources */,
@@ -889,8 +931,10 @@
 				54C3314E29848E2E00CC7F16 /* Dictionary+Extensions.swift in Sources */,
 				54C3314229848D4000CC7F16 /* ResponseDecoding.swift in Sources */,
 				544F24352985924D0033E920 /* NewOverviewTableViewCell.swift in Sources */,
+				54A595EE2987162C007AF199 /* CustomSegmentItemView.swift in Sources */,
 				54C3312E2984809E00CC7F16 /* ScreenState.swift in Sources */,
 				54FFA6A329845AED0064E415 /* SceneDelegate.swift in Sources */,
+				54A595F62987208D007AF199 /* CustomSegmentsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
