@@ -30,9 +30,10 @@ Screen Layer (MVVM - Dependecy) => Domain Layer (Business Logic) <= Data Layer (
 Note: Domain Layer should not include anything from other layers(e.g Screen — UIKit or SwiftUI or Data Layer — Mapping Codable)
 
 Additional Frameworks:
-Swiflint : Used to have standart on the code such as coloum spacing, vertical spacing (here the swiftlint.yml file is copied from AIRBNB app)
-Swiftgen: Used to create the assets for Images, Localizable and Colors
-KingFisher: Used for loading images with caching feature in order to avoid image loading each time when the app launches
+
+- Swiflint : Used to have standart on the code such as coloum spacing, vertical spacing (here the swiftlint.yml file is copied from AIRBNB app)
+- Swiftgen: Used to create the assets for Images, Localizable and Colors
+- KingFisher: Used for loading images with caching feature in order to avoid image loading each time when the app launches
 
 How to use app
 
