@@ -23,12 +23,12 @@ class BaseViewController: UIViewController, Alertable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         executeRequests()
-        bindViewModel()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
+        bindViewModel()
     }
     
     open func executeRequests() {}

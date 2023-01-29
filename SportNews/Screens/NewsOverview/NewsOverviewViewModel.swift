@@ -8,11 +8,11 @@
 import Foundation
 
 struct NewsOverviewViewModelActions {
-    let showDetails: () -> Void
+    let showDetails: (SportData) -> Void
 }
 
 protocol NewsOverviewInputViewModel {
-    func showDetails()
+    func showDetails(sportData: SportData)
     func fetchNewsOverview()
 }
 
@@ -46,6 +46,21 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         case motorsport = "Motor Sport"
         case sportmix = "Sport Mix"
         case esports = "Esports"
+        
+        var title: String {
+            switch self {
+            case .fussball:
+                return L10n.football
+            case .wintersport:
+                return L10n.winterSport
+            case .motorsport:
+                return L10n.motorsport
+            case .sportmix:
+                return L10n.sportmix
+            case .esports:
+                return L10n.esports
+            }
+        }
     }
     
     private let newsOverviewUseCase: NewsOverviewUseCase
@@ -58,8 +73,8 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         self.actions = actions
     }
     
-    func showDetails() {
-        
+    func showDetails(sportData: SportData) {
+        actions?.showDetails(sportData)
     }
     
     func fetchNewsOverview() {

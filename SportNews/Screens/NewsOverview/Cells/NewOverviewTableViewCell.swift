@@ -12,7 +12,7 @@ class NewOverviewTableViewCell: UITableViewCell {
   
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!
-    @IBOutlet weak private var iconImageView: UIImageView! 
+    @IBOutlet weak private var iconImageView: UIImageView!
     
     private func fill(item: NewOverviewViewModel) {
         titleLabel.text = item.item.title
@@ -27,5 +27,5 @@ class NewOverviewTableViewCell: UITableViewCell {
         cell.selectionStyle = .none
         return cell
     }
-
+    
 }

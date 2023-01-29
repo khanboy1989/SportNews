@@ -43,6 +43,16 @@ final class NewsOverviewSceneDIContainer {
     func makeOverviewViewController(actions: NewsOverviewViewModelActions) -> NewsOverviewViewController {
         return NewsOverviewViewController(viewModel: makeNewOverViewViewModel(actions: actions))
     }
+    
+    //MARK: - NewsOverviewDetailsController
+    func makeNewsOverviewDetailsViewController(sportData: SportData) -> NewsOverviewDetailsViewController {
+        return NewsOverviewDetailsViewController(viewModel: makeNewsOverviewDetailsViewModel(sportData: sportData))
+    }
+    
+    //MARK: - NewsOverviewDetailsViewModel
+    func makeNewsOverviewDetailsViewModel(sportData: SportData) -> NewsOverviewDetailsViewModel {
+        return DefaultNewsOverviewDetailsViewModel(item: sportData)
+    }
 }
 
 extension NewsOverviewSceneDIContainer: NewsOverviewFlowCoordinatorDependecies {}

@@ -9,6 +9,7 @@ import Foundation
 
 protocol NewsOverviewFlowCoordinatorDependecies {
     func makeOverviewViewController(actions: NewsOverviewViewModelActions) -> NewsOverviewViewController
+    func makeNewsOverviewDetailsViewController(sportData: SportData) -> NewsOverviewDetailsViewController
 }
 
 class NewsOverviewFlowCoordinator: Coordinator {
@@ -27,8 +28,9 @@ class NewsOverviewFlowCoordinator: Coordinator {
         self.navigationController.setViewControllers([vc], animated: true)
     }
     
-    private func showDetails() {
-        
+    private func showDetails(sportData: SportData) {
+        let vc = dependecies.makeNewsOverviewDetailsViewController(sportData: sportData)
+        self.navigationController.pushViewController(vc, animated: true)
     }
     
 }

@@ -94,11 +94,14 @@ extension NewsOverviewViewController: UITableViewDelegate {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont.systemFont(ofSize: 16)
         header.textLabel?.textColor = UIColor.black
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let itemIdentifier = tableViewDataSource.itemIdentifier(for: indexPath) else {
+            self.showAlert(message: L10n.selectedItemError)
+             return
+        }
+        self.viewModel?.showDetails(sportData: itemIdentifier.item)
     }
 }
 
@@ -107,6 +110,6 @@ class NewsOverviewTableViewDataSource: UITableViewDiffableDataSource<DefaultNews
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = self.snapshot().sectionIdentifiers[section]
-        return section.rawValue
+        return section.title
     }
 }

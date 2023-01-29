@@ -5,5 +5,12 @@
   Created by Serhan Khan on 27.01.23.
   
 */
-"test" = "Test";
+
 "news" = "News";
+"details" = "Details";
+"football" = "Fussball";
+"winterSport" = "Winter Sport";
+"motorsport" = "Motor Sport";
+"sportmix" = "Sport Mix";
+"esports" = "Esports";
+"selectedItemError" = "Selected item cannot be displayed at this time please try later again.";
