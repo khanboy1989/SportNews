@@ -23,7 +23,7 @@ Coordinators are separated for each flow in this case the project contains one f
 - Data Repositories Layer = Repositories Implementations + API (Network) + Persistence DB (if applicable)
 - Screen Layer (MVVM) = ViewModels + Views
 
-Dependecy Direction:
+<h4>Dependecy Direction:</h4>
 
 Screen Layer (MVVM - Dependecy) => Domain Layer (Business Logic) <= Data Layer (Data Repositories)
 
