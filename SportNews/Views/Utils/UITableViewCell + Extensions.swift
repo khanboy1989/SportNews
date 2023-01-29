@@ -7,6 +7,8 @@
 
 import UIKit
 
+//Extension class for UITableViewCell in order to return the Identifier
+//and creation of the TableViewCell
 extension UITableViewCell {
 
     static var identifier: String {

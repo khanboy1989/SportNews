@@ -7,20 +7,27 @@
 
 import Foundation
 
+//Actions that are necessary from the ViewController to ViewModel
+//NOTE: Actions are initialized and handled inside the
+//NewsOverviewFlowCoordinator
 struct NewsOverviewViewModelActions {
     let showDetails: (SportData) -> Void
 }
 
+//INPUT: receives the orders (click event, request events from the view controller)
 protocol NewsOverviewInputViewModel {
     func showDetails(sportData: SportData)
     func fetchNewsOverview()
 }
 
+//OUTPUT: sends the events to viewcontroller
 protocol NewsOverviewOutputViewModel {
     var screenTitle: String { get }
     var newsScreenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>> { get }
 }
 
+//NesOverviewModel struct is to map real DTO that is received from the UseCase
+//to viewcontroller
 struct NewOverviewViewModel {
     let type: String
     let item: SportData
@@ -40,6 +47,7 @@ protocol NewsOverviewViewModel: NewsOverviewInputViewModel, NewsOverviewOutputVi
 
 final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
     
+    //MARK: - Section
     enum Section: String, CaseIterable {
         case fussball = "Fussball"
         case wintersport = "Winter Sport"
@@ -63,16 +71,24 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         }
     }
     
+    //MARK: - Parameters
     private let newsOverviewUseCase: NewsOverviewUseCase
     private let actions: NewsOverviewViewModelActions?
     private var newsLoadTask: Cancellable? { willSet { newsLoadTask?.cancel() } }
    
+    //MARK: - Init
     init(newsOverviewUseCase: NewsOverviewUseCase,
          actions: NewsOverviewViewModelActions? = nil ) {
         self.newsOverviewUseCase = newsOverviewUseCase
         self.actions = actions
     }
     
+    //MARK: - ShowDetails
+    /**
+        Receives the click event from the viewcontroller and shows the details
+        Note: the navigation event is handled inside the Coordinator which is in this case
+        NewsOverviewFlowCoordinator
+     */
     func showDetails(sportData: SportData) {
         actions?.showDetails(sportData)
     }
@@ -85,8 +101,10 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         return L10n.news
     }
     
+    //OUTPUT observable with screen state that handles when the loading spinner will be shown and when the data is arrived
     var newsScreenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>> = Observable(.loading)
 
+    // MARK: - Fetch the News
     private func fetch(screenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>>) {
         newsLoadTask = newsOverviewUseCase.execute(completion: { [weak self] in
             switch $0 {
@@ -98,6 +116,10 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         })
     }
     
+    //MARK: - Create Sections
+    /**
+          Creates the data for viewcontroller that needs to be displayed
+     */
     private func createSections(screenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>>, news: NewsOverviewResponseDTO) {
         var items: [Section: [NewOverviewViewModel]] = [:]
         

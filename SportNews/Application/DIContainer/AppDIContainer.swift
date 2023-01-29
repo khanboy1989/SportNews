@@ -7,6 +7,20 @@
 
 import Foundation
 
+/**
+ AppDIContainer holds the top level classes that are supposed to injected by classes
+ such as ViewModel, Repository and UseCases
+
+ In this specific case we try to hold necessary services like NetworkSerive (and config)
+ SecurityService and etc.
+ 
+ Here also DIContainer holds the children DIContainers, here we only needed one
+ NewsOverViewDIContainer()
+ 
+ In future if we need to define another flow (like UserRegistration/Login) we can define it here
+ and we can pass the DataTransfer class as an parameter to it as well
+ 
+ */
 class AppDIContainer {
     
     lazy var appConfiguration = AppConfiguration()
@@ -20,6 +34,11 @@ class AppDIContainer {
     }()
     
     //MARK: - DIContainer of Scenes
+    
+    /**
+        NewsOverviewDIContainer in this case first defined
+         DIContainer and initially we have paased the DataTransferService to it as a parameter
+     */
     func makeNewsOverviewDIContainer() -> NewsOverviewSceneDIContainer {
         let dependecies = NewsOverviewSceneDIContainer.Dependecies(apiDataTransfer: apiDataTransferService)
         return NewsOverviewSceneDIContainer(dependecies: dependecies)

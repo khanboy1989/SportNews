@@ -11,8 +11,10 @@ import WebKit
 
 final class NewsOverviewDetailsViewController: BaseViewController {
     
+    //MARK: - ViewModel
     private let viewModel: NewsOverviewDetailsViewModel?
     
+    //MARK: - UI Elements
     @IBOutlet private weak var webView: WKWebView! {
         willSet {
             newValue.backgroundColor = Asset.Colors.appBackgroundColor.color
@@ -20,6 +22,7 @@ final class NewsOverviewDetailsViewController: BaseViewController {
         }
     }
 
+    //MARK: - Initializer
     init(viewModel: NewsOverviewDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: NewsOverviewDetailsViewController.self), bundle: nil)
@@ -29,21 +32,20 @@ final class NewsOverviewDetailsViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.viewWillAppear()
         webView.isHidden = false
     }
     
-    override func bindViewModel() {
-        super.bindViewModel()
-    }
-    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.viewDidLoad()
     }
     
+    //MARK: - configureObservers
     override func configureObservers() {
         super.configureObservers()
         viewModel?.screenTitle

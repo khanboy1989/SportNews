@@ -13,6 +13,7 @@ final class NewsOverviewViewController: BaseViewController {
     // MARK: - ViewModel
     private let viewModel: NewsOverviewViewModel?
    
+    // MARK: - DataSource
     private lazy var tableViewDataSource = NewsOverviewTableViewDataSource(tableView: tableView, cellProvider: newOverviewTableViewCellProvider)
     
     // MARK: - UI Elements
@@ -25,8 +26,6 @@ final class NewsOverviewViewController: BaseViewController {
         }
     }
     
-    // MARK: - DataSource
-    
     // MARK: - Initializer
     init(viewModel: NewsOverviewViewModel) {
         self.viewModel = viewModel
@@ -37,6 +36,9 @@ final class NewsOverviewViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /*
+     Binds the viewmodel input events
+     */
     override func bindViewModel() {
         super.bindViewModel()
         title = viewModel?.screenTitle
@@ -48,6 +50,10 @@ final class NewsOverviewViewController: BaseViewController {
         viewModel?.fetchNewsOverview()
     }
     
+    //MARK: - ConfigureObservers
+    /*
+     Binds the viewmodel output events
+     */
     override func configureObservers() {
         viewModel?.newsScreenState.observe(on: self) { [weak self] in
             switch $0 {
@@ -88,6 +94,7 @@ final class NewsOverviewViewController: BaseViewController {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension NewsOverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.red

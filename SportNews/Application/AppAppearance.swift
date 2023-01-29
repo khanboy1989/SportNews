@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class AppAppearance{
+final class AppAppearance {
     static func setupAppearance(){
         UINavigationBar.appearance().barTintColor = Asset.Colors.black.color
         UINavigationBar.appearance().tintColor = Asset.Colors.black.color
