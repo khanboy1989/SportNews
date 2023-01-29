@@ -18,7 +18,7 @@ import Foundation
  
  So the order as follows (in general almost in any flow):
  ViewController injects -> ViewModel
- ViewModel injects -> UseCase
+ ViewModel injects -> UseCase, Coordinators
  UseCase injects -> Repository
  Repository injects -> DataTransferService
  */

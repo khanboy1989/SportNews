@@ -20,6 +20,11 @@ import Foundation
  In future if we need to define another flow (like UserRegistration/Login) we can define it here
  and we can pass the DataTransfer class as an parameter to it as well
  
+ Injection order for the classes 
+ ViewController injects -> ViewModel
+ ViewModel injects -> UseCase, Coordinators
+ UseCase injects -> Repository
+ Repository injects -> DataTransferService
  */
 class AppDIContainer {
     
