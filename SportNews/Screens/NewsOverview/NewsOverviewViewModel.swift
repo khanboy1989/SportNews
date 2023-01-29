@@ -18,12 +18,15 @@ struct NewsOverviewViewModelActions {
 protocol NewsOverviewInputViewModel {
     func showDetails(sportData: SportData)
     func fetchNewsOverview()
+    func viewDidLoad()
+    func onCategoryItemChange(_ selectedItem: DefaultNewsOverviewViewModel.Section)
 }
 
 //OUTPUT: sends the events to viewcontroller
 protocol NewsOverviewOutputViewModel {
     var screenTitle: String { get }
     var newsScreenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>> { get }
+    var categorySegmentItems: Observable<[CustomSegmentItem]> { get }
 }
 
 //NesOverviewModel struct is to map real DTO that is received from the UseCase
@@ -49,6 +52,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
     
     //MARK: - Section
     enum Section: String, CaseIterable {
+        case all = "All"
         case fussball = "Fussball"
         case wintersport = "Winter Sport"
         case motorsport = "Motor Sport"
@@ -67,6 +71,8 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
                 return L10n.sportmix
             case .esports:
                 return L10n.esports
+            case .all:
+                return L10n.segmentAll
             }
         }
     }
@@ -75,7 +81,8 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
     private let newsOverviewUseCase: NewsOverviewUseCase
     private let actions: NewsOverviewViewModelActions?
     private var newsLoadTask: Cancellable? { willSet { newsLoadTask?.cancel() } }
-   
+    private var allNewsItems: [DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]] = [:]
+    
     //MARK: - Init
     init(newsOverviewUseCase: NewsOverviewUseCase,
          actions: NewsOverviewViewModelActions? = nil ) {
@@ -93,16 +100,39 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         actions?.showDetails(sportData)
     }
     
+    //MARK: - FetchNewOverview
+    //expecting call from viewcontroller
     func fetchNewsOverview() {
         fetch(screenState: newsScreenState)
     }
     
+    //returns the title of the screen
     var screenTitle: String {
         return L10n.news
     }
     
+    //MARK: - ViewDidLoad
+    //When view is loaded before awaiting the call to be completed
+    //creates the segment items manually
+    //TODO: Make the segment creation depending on API call result
+    func viewDidLoad() {
+        self.createCategorySegmentItems(categorySegmentItems: categorySegmentItems)
+    }
+    
+    //MARK: - OnSelected Item Changed
+    func onCategoryItemChange(_ selectedItem: DefaultNewsOverviewViewModel.Section) {
+        guard  let selectedCategoryItem = DefaultNewsOverviewViewModel.Section.allCases.first(where: { $0 == selectedItem }) else {
+            return
+        }
+        self.createCategorySegmentItems(selectedItem: selectedCategoryItem,categorySegmentItems: categorySegmentItems)
+        self.createSectionsForSelecteSegmentItem(for: selectedCategoryItem)
+        
+    }
+    
     //OUTPUT observable with screen state that handles when the loading spinner will be shown and when the data is arrived
     var newsScreenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>> = Observable(.loading)
+    
+    var categorySegmentItems: Observable<[CustomSegmentItem]> = Observable([])
 
     // MARK: - Fetch the News
     private func fetch(screenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>>) {
@@ -118,7 +148,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
     
     //MARK: - Create Sections
     /**
-          Creates the data for viewcontroller that needs to be displayed
+        Creates the data for viewcontroller that needs to be displayed
      */
     private func createSections(screenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>>, news: NewsOverviewResponseDTO) {
         var items: [Section: [NewOverviewViewModel]] = [:]
@@ -146,7 +176,33 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         items[.sportmix] = sportmix
         items[.esports] = esports
         
+        allNewsItems = items
         screenState.value = .succes(data: items)
+    }
+    
+    //MARK: - CreateCategorySegmentItems
+    private func createCategorySegmentItems(selectedItem: DefaultNewsOverviewViewModel.Section = .all ,categorySegmentItems: Observable<[CustomSegmentItem]>) {
         
+        let segmentItems: [CustomSegmentItem] = DefaultNewsOverviewViewModel.Section.allCases.map({ sectionItem -> CustomSegmentItem in
+        
+            if sectionItem == selectedItem {
+                return CustomSegmentItem(title: sectionItem.title, isSelected: true, type: sectionItem)
+            } else {
+                return CustomSegmentItem(title: sectionItem.title, isSelected: false, type: sectionItem)
+            }
+        })
+        
+        categorySegmentItems.value = segmentItems
+    }
+    
+    private func createSectionsForSelecteSegmentItem(for selectedCategory: DefaultNewsOverviewViewModel.Section) {
+        
+        switch selectedCategory {
+        case .all:
+            newsScreenState.value = .succes(data: allNewsItems)
+        default:
+            guard let newData = allNewsItems[selectedCategory] else { return }
+            newsScreenState.value = .succes(data: [selectedCategory : newData])
+        }
     }
 }

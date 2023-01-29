@@ -20,6 +20,8 @@ internal enum L10n {
   internal static let motorsport = L10n.tr("Localizable", "motorsport")
   /// News
   internal static let news = L10n.tr("Localizable", "news")
+  /// All
+  internal static let segmentAll = L10n.tr("Localizable", "segmentAll")
   /// Selected item cannot be displayed at this time please try later again.
   internal static let selectedItemError = L10n.tr("Localizable", "selectedItemError")
   /// Sport Mix
