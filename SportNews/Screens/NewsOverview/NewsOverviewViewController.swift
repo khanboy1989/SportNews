@@ -45,6 +45,14 @@ final class NewsOverviewViewController: BaseViewController {
         viewModel?.viewDidLoad()
     }
     
+    
+    //MARK: - Deinit
+    deinit {
+        //remove observers when the viewcontroller deinitialized
+        viewModel?.newsScreenState.remove(observer: self)
+        viewModel?.categorySegmentItems.remove(observer: self)
+    }
+    
     /*
      Binds the viewmodel input events
      */
@@ -52,13 +60,13 @@ final class NewsOverviewViewController: BaseViewController {
         super.bindViewModel()
         title = viewModel?.screenTitle
     }
-    
+
     //MARK: - Methods
     override func executeRequests() {
         super.executeRequests()
         viewModel?.fetchNewsOverview()
     }
-    
+
     //MARK: - ConfigureObservers
     /*
      Binds the viewmodel output events
@@ -87,9 +95,10 @@ final class NewsOverviewViewController: BaseViewController {
         viewModel?.categorySegmentItems.observe(on: self) {[weak self] items in
             self?.customSegmentsView.setItems(items: items)
         }
-
     }
     
+    //binds the custom view click events to viewcontroller
+    //from here it we are interacting with viewModel(if applicable)
     private func bindUIComponents() {
         self.customSegmentsView.onWillChangeSelectedItem = {[weak self] selectedItem in
             self?.viewModel?.onCategoryItemChange(selectedItem)
@@ -135,13 +144,14 @@ extension NewsOverviewViewController: UITableViewDelegate {
             self.showAlert(message: L10n.selectedItemError)
              return
         }
+        //when clicked show detail of selected item
         self.viewModel?.showDetails(sportData: itemIdentifier.item)
     }
 }
 
 // MARK: - NewsOverviewTableViewDataSource
 class NewsOverviewTableViewDataSource: UITableViewDiffableDataSource<DefaultNewsOverviewViewModel.Section,NewOverviewViewModel> {
-    
+    //return the titles for tableview sections
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = self.snapshot().sectionIdentifiers[section]
         return section.title
