@@ -141,7 +141,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
             case let.success(news):
                 self?.createSections(screenState: screenState, news: news)
             case let .failure(error):
-                screenState.value = .error(error: error.localizedDescription)
+                screenState.value = .error(error: L10n.defaultError)
             }
         })
     }

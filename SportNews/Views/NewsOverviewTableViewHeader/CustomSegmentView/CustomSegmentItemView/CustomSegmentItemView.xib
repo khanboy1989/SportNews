@@ -21,11 +21,11 @@
             <rect key="frame" x="0.0" y="0.0" width="214" height="140"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bIU-9U-fw6">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bIU-9U-fw6">
                     <rect key="frame" x="0.0" y="59" width="214" height="81"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qn-M7-iCU">
-                            <rect key="frame" x="86.333333333333329" y="0.0" width="41.333333333333329" height="73"/>
+                            <rect key="frame" x="86.333333333333329" y="0.0" width="41.333333333333329" height="75"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

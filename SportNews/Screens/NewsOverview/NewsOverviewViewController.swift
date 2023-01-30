@@ -69,11 +69,11 @@ final class NewsOverviewViewController: BaseViewController {
             case let.succes(data):
                 LoadingView.hide()
                 self?.updateNewOverviews(items: data)
-
             case .loading:
                 LoadingView.show()
             case let .error(error):
                 self?.showAlert(message: error)
+                LoadingView.hide()
             case .finished:
                 printIfDebug("finished")
                 break
@@ -124,9 +124,9 @@ final class NewsOverviewViewController: BaseViewController {
 //MARK: - UITableViewDelegate
 extension NewsOverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.red
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.textLabel?.backgroundColor = Asset.Colors.lightGray.color
         header.textLabel?.textColor = UIColor.black
     }
     

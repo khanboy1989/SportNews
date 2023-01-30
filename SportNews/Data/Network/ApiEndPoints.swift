@@ -8,6 +8,7 @@
 import Foundation
 
 //API EndPoints are defined here
+//Base url is defined inside tne Network
 struct ApiEndPoints {
     
     //GetNewsOverview endpoint
