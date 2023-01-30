@@ -9,10 +9,12 @@ import XCTest
 
 class NewsOverviewViewModelTests: XCTestCase {
     
+    //Mock error
     private enum NewsOverViewUseCaseError: Error {
         case someError
     }
     
+    //Mock Usecase
     class NewsOverviewUseCaseMock: NewsOverviewUseCase {
         var expectation: XCTestExpectation?
         var error: Error?
@@ -29,7 +31,7 @@ class NewsOverviewViewModelTests: XCTestCase {
         }
     }
     
-    func test_whenNewsOverviewUseCase_NewsDataSuccesfully_thenViewModelContainsData() {
+    func test_whenNewsOverviewUseCase_ReturnsDataSuccesfully_thenViewModelContainsData() {
         //given
         let newsOverviewUseCaseMock = NewsOverviewUseCaseMock()
         newsOverviewUseCaseMock.expectation = self.expectation(description: "test success case")

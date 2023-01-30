@@ -64,6 +64,9 @@
 		548AB8DE29880DB40043487F /* NibOwnerLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A595F129871CF7007AF199 /* NibOwnerLoadable.swift */; };
 		548AB8E0298815C30043487F /* NewsOverviewDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB8DF298815C30043487F /* NewsOverviewDetailsViewModelTests.swift */; };
 		548AB8E12988164C0043487F /* NewsOverviewDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C33B32986E2A500F088FC /* NewsOverviewDetailsViewModel.swift */; };
+		548AB8E2298822320043487F /* DefaultNewsOverviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F240E298550470033E920 /* DefaultNewsOverviewRepository.swift */; };
+		548AB8E3298825F00043487F /* RepositoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F23FE29854A430033E920 /* RepositoryTask.swift */; };
+		548AB8E5298826640043487F /* ApiEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F240729854CE00033E920 /* ApiEndPoints.swift */; };
 		54A595EE2987162C007AF199 /* CustomSegmentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A595ED2987162C007AF199 /* CustomSegmentItemView.swift */; };
 		54A595F0298716E2007AF199 /* CustomSegmentItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A595EF298716E2007AF199 /* CustomSegmentItemView.xib */; };
 		54A595F229871CF7007AF199 /* NibOwnerLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A595F129871CF7007AF199 /* NibOwnerLoadable.swift */; };
@@ -1039,6 +1042,7 @@
 				548AB8C12987B0C50043487F /* NetworkService.swift in Sources */,
 				548AB8CF2987F3550043487F /* NewsOverviewUseCaseTests.swift in Sources */,
 				548AB8D42987FDFF0043487F /* NewsOverviewResponseDTO.swift in Sources */,
+				548AB8E2298822320043487F /* DefaultNewsOverviewRepository.swift in Sources */,
 				548AB8DC29880CFC0043487F /* Strings.swift in Sources */,
 				548AB8DD29880D9E0043487F /* Assets.swift in Sources */,
 				548AB8C52987C7810043487F /* EndPoint.swift in Sources */,
@@ -1058,9 +1062,11 @@
 				54FFA6B829845AEE0064E415 /* SportNewsTests.swift in Sources */,
 				548AB8D9298809C30043487F /* ScreenState.swift in Sources */,
 				548AB8CB2987D7990043487F /* NetworkServiceTests.swift in Sources */,
+				548AB8E5298826640043487F /* ApiEndPoints.swift in Sources */,
 				548AB8E12988164C0043487F /* NewsOverviewDetailsViewModel.swift in Sources */,
 				548AB8C32987B0F20043487F /* NetworkSessionManagerMock.swift in Sources */,
 				548AB8E0298815C30043487F /* NewsOverviewDetailsViewModelTests.swift in Sources */,
+				548AB8E3298825F00043487F /* RepositoryTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
