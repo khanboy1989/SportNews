@@ -34,6 +34,8 @@ final class NewsOverviewViewController: BaseViewController {
         }
     }
     
+    private let refreshControl = UIRefreshControl()
+
     // MARK: - Initializer
     init(viewModel: NewsOverviewViewModel) {
         self.viewModel = viewModel
@@ -82,11 +84,15 @@ final class NewsOverviewViewController: BaseViewController {
             case let.succes(data):
                 LoadingView.hide()
                 self?.updateNewOverviews(items: data)
+                self?.refreshControl.endRefreshing()
+                self?.tryAgainButton.isHidden = true 
             case .loading:
                 LoadingView.show()
             case let .error(error):
                 self?.showAlert(message: error)
                 LoadingView.hide()
+                self?.tryAgainButton.isHidden = false
+                self?.refreshControl.endRefreshing()
             case .finished:
                 printIfDebug("finished")
                 break
@@ -108,6 +114,8 @@ final class NewsOverviewViewController: BaseViewController {
         self.customSegmentsView.onWillChangeSelectedItem = {[weak self] selectedItem in
             self?.viewModel?.onCategoryItemChange(selectedItem)
         }
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
     }
     
     //Updates the newsoverview tableview cell depending on the received full data
@@ -151,6 +159,12 @@ final class NewsOverviewViewController: BaseViewController {
     private func newOverviewTableViewCellProvider(tableView: UITableView, indexPath: IndexPath , item: NewOverviewViewModel) -> UITableViewCell? {
         return NewOverviewTableViewCell.create(tableView: tableView, item: item)
     }
+
+    @objc func pullToRefresh(refreshControl: UIRefreshControl) {
+        self.viewModel?.fetchNewsOverview()
+        self.viewModel?.onCategoryItemChange(.all)
+    }
+
 }
 
 //MARK: - UITableViewDelegate

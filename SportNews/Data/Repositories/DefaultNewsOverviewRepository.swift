@@ -21,7 +21,10 @@ extension DefaultNewsOverviewRepository: NewsOverViewRepository {
         let task = RepositoryTask()
         let endpoint = ApiEndPoints.getNewsOverview()
         //check if there is an instance for the same is cancelled before sending the request to server to avoid uncessary calls
-        guard !task.isCancelled else { return nil}
+        guard !task.isCancelled else {
+            completion(.failure(NetworkError.cancelled))
+            return nil
+        }
         task.networkTask = dataTransferService.request(with: endpoint, completion: {
             result in
             switch result {

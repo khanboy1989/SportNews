@@ -143,7 +143,6 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         }
         self.createCategorySegmentItems(selectedItem: selectedCategoryItem,categorySegmentItems: categorySegmentItems)
         self.createSectionsForSelecteSegmentItem(for: selectedCategoryItem)
-        
     }
     
     //OUTPUT observable with screen state that handles when the loading spinner will be shown and when the data is arrived
@@ -157,7 +156,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
             switch $0 {
             case let.success(news):
                 self?.createSections(screenState: screenState, news: news)
-            case let .failure(error):
+            case .failure(_):
                 screenState.value = .error(error: L10n.defaultError)
             }
         })
