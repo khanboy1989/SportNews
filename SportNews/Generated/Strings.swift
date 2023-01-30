@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// Please check your internet connection
+  internal static let defaultError = L10n.tr("Localizable", "defaultError")
   /// Details
   internal static let details = L10n.tr("Localizable", "details")
   /// Esports

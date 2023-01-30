@@ -69,11 +69,11 @@ final class NewsOverviewViewController: BaseViewController {
             case let.succes(data):
                 LoadingView.hide()
                 self?.updateNewOverviews(items: data)
-
             case .loading:
                 LoadingView.show()
             case let .error(error):
                 self?.showAlert(message: error)
+                LoadingView.hide()
             case .finished:
                 printIfDebug("finished")
                 break
