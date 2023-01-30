@@ -30,7 +30,7 @@ class DataTransferServiceTests: XCTestCase {
                                                                                                              data: responseData,
                                                                                                              error: nil))
         //mocked model is used in order to check if network manager can decode the given response data correctly
-        let endPoint = Endpoint<MockModel>(path: "https://www.laola1.at/", method: .get)
+        let endPoint = Endpoint<MockModel>(path: "http://mock.test.com", method: .get)
         let dataTransferService = DefaultDataTransferService(networkService: networkService)
       
         //init DefaultNetworkService from main project
@@ -47,7 +47,7 @@ class DataTransferServiceTests: XCTestCase {
         }
 
         //then
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 0.1)
     }
     
     func test_receivedInvalidJsonResponse_shouldNotDecode_ToObject() {
@@ -64,7 +64,7 @@ class DataTransferServiceTests: XCTestCase {
                                                     error: nil))
         
         //mocked model endpoint
-        let endPoint = Endpoint<MockModel>(path: "https://www.laola1.at/", method: .get)
+        let endPoint = Endpoint<MockModel>(path: "http://mock.test.com", method: .get)
         
         //init DefaultNetworkService from main project
         let dataTransferService = DefaultDataTransferService(networkService: networkService)
@@ -80,7 +80,7 @@ class DataTransferServiceTests: XCTestCase {
             }
         }
         //then
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 0.1)
     }
     
     func test_whenBadRequestReceived_shouldRethrowNetworkError() {
@@ -101,7 +101,7 @@ class DataTransferServiceTests: XCTestCase {
         
         let dataTransferService = DefaultDataTransferService(networkService: networkService)
         //when
-        _ = dataTransferService.request(with: Endpoint<MockModel>(path: "https://www.laola1.at/", method: .get)) { result in
+        _ = dataTransferService.request(with: Endpoint<MockModel>(path: "http://mock.test.com", method: .get)) { result in
             do {
                 _ = try result.get()
                 XCTFail("Should not happen")
@@ -115,7 +115,7 @@ class DataTransferServiceTests: XCTestCase {
             }
         }
         //then
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 0.1)
     }
     
     func test_whenNoDataReceived_shouldThrowNoDataError() {
@@ -133,7 +133,7 @@ class DataTransferServiceTests: XCTestCase {
         
         let dataTransferService = DefaultDataTransferService(networkService: networkService)
         //when
-        _ = dataTransferService.request(with: Endpoint<MockModel>(path: "https://www.laola1.at/", method: .get)) { result in
+        _ = dataTransferService.request(with: Endpoint<MockModel>(path: "http://mock.test.com", method: .get)) { result in
             do {
                 _ = try result.get()
                 XCTFail("Should not happen")
@@ -146,7 +146,7 @@ class DataTransferServiceTests: XCTestCase {
             }
         }
         //then
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 0.1)
     }
     
 }
