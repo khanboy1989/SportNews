@@ -7,7 +7,10 @@
 
 import UIKit
 import Kingfisher
-
+/*
+ NewOverviewTableviewCell
+ created by using UITableViewCell + Extension
+ */
 class NewOverviewTableViewCell: UITableViewCell {
   
     @IBOutlet weak private var titleLabel: UILabel!
