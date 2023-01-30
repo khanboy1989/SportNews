@@ -15,6 +15,7 @@ UseCase injects -> Repository
 Repository injects -> DataTransferService
 
 In this project specifically the MVVM-C pattern is selected so in future when it is needed we can expand the future and enhance the flows with a clean way.
+
 Coordinators are separated for each flow in this case the project contains one flow which is NewsOverviewCoordinator and all necessary navigation actions are defined in the relevant class.
 
 NOTE: \*The application on purpose does not use the Combine/RxSwift libraries, It is implemented with custom Observable class in order to demonstrate different approach.
@@ -70,3 +71,6 @@ Details View Controler contains try again option in case of any network error.
 - Custom Observable class is used, we can switch to Combine/RxSwift completely
 - Adding Persistence data saving functionality by using CoreData/Realm
 - Seperating Schemes such as DEBUG, STAGE, RELEASE
+
+<h4>Requirements</h4>
+Xcode Version 14.2+ Swift 5.0+
