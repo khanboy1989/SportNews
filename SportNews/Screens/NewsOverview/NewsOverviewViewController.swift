@@ -109,16 +109,22 @@ final class NewsOverviewViewController: BaseViewController {
     private func updateNewOverviews(items: [DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]) {
         var snapshot = NSDiffableDataSourceSnapshot<DefaultNewsOverviewViewModel.Section, NewOverviewViewModel>()
         
+        //create sections and sort then depending on order
         let sections = items.keys.map({ sectionItem -> DefaultNewsOverviewViewModel.Section in
             return sectionItem
-        })
+        }).sorted(by: { $0.order < $1.order })
+        
+        //append sections
         snapshot.appendSections(sections)
         
+        //append items for sections depending or order
         sections.forEach { sectionItem in
             snapshot.appendItems(items[sectionItem] ?? [], toSection: sectionItem)
         }
         
+        //apply new changes to tableview
         tableViewDataSource.apply(snapshot, animatingDifferences: true, completion: {
+            //after completion reload data
             self.tableView.reloadData()
         })
     }

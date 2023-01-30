@@ -61,6 +61,8 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         
         var title: String {
             switch self {
+            case .all:
+                return L10n.segmentAll
             case .fussball:
                 return L10n.football
             case .wintersport:
@@ -71,8 +73,23 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
                 return L10n.sportmix
             case .esports:
                 return L10n.esports
+            }
+        }
+        
+        var order: Int {
+            switch self {
             case .all:
-                return L10n.segmentAll
+                return 0
+            case .fussball:
+                return 1
+            case .wintersport:
+                return 2
+            case .motorsport:
+                return 3
+            case .sportmix:
+                return 4
+            case .esports:
+                return 5
             }
         }
     }
