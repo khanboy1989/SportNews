@@ -28,12 +28,6 @@ final class NewsOverviewViewController: BaseViewController {
     
     @IBOutlet private weak var customSegmentsView: CustomSegmentsView!
     
-    @IBOutlet private weak var tryAgainButton: UIButton! {
-        willSet {
-            newValue.isHidden = true
-        }
-    }
-    
     private let refreshControl = UIRefreshControl()
 
     // MARK: - Initializer
@@ -85,13 +79,12 @@ final class NewsOverviewViewController: BaseViewController {
                 LoadingView.hide()
                 self?.updateNewOverviews(items: data)
                 self?.refreshControl.endRefreshing()
-                self?.tryAgainButton.isHidden = true 
             case .loading:
                 LoadingView.show()
+                self?.refreshControl.endRefreshing()
             case let .error(error):
                 self?.showAlert(message: error)
                 LoadingView.hide()
-                self?.tryAgainButton.isHidden = false
                 self?.refreshControl.endRefreshing()
             case .finished:
                 printIfDebug("finished")
@@ -102,7 +95,6 @@ final class NewsOverviewViewController: BaseViewController {
                 break
             }
         }
-        
         viewModel?.categorySegmentItems.observe(on: self) {[weak self] items in
             self?.customSegmentsView.setItems(items: items)
         }
@@ -140,17 +132,6 @@ final class NewsOverviewViewController: BaseViewController {
             //after completion reload data
             self.tableView.reloadData()
         })
-    }
-    
-    //MARK: - Try Again Button
-    /*
-     When there is a network error user will have chance to
-     try again for better UX
-     */
-    @IBAction func tryAgainButtonTapped(sender: UIButton) {
-        viewModel?.fetchNewsOverview()
-        self.tryAgainButton.isHidden = true
-        LoadingView.show()
     }
     
     //MARK: - END of Methods
