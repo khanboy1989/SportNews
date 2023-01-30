@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsOverviewDetailsViewController" customModule="SportNews" customModuleProvider="target">
             <connections>
+                <outlet property="tryAgainButton" destination="pCe-YL-Mfw" id="aSS-zd-91o"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kEz-KK-XzU"/>
                 <outlet property="webView" destination="hzI-iq-tXm" id="PLD-CN-BSP"/>
             </connections>
@@ -28,14 +29,24 @@
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCe-YL-Mfw">
+                    <rect key="frame" x="147" y="421" width="99" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Try again!"/>
+                    <connections>
+                        <action selector="tryAgainButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="xSZ-6f-xPx"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="pCe-YL-Mfw" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2u7-8x-e8j"/>
                 <constraint firstItem="hzI-iq-tXm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3IU-wS-3f3"/>
                 <constraint firstItem="hzI-iq-tXm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6y6-Yf-8Ww"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hzI-iq-tXm" secondAttribute="trailing" id="SWB-C0-8Zh"/>
                 <constraint firstItem="hzI-iq-tXm" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="rlD-te-jbH"/>
+                <constraint firstItem="pCe-YL-Mfw" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ubM-22-Lz2"/>
             </constraints>
             <point key="canvasLocation" x="-37.404580152671755" y="-11.267605633802818"/>
         </view>

@@ -21,6 +21,12 @@ final class NewsOverviewDetailsViewController: BaseViewController {
             newValue.navigationDelegate = self
         }
     }
+    
+    @IBOutlet private weak var tryAgainButton: UIButton! {
+        willSet{
+            newValue.isHidden = true
+        }
+    }
 
     //MARK: - Initializer
     init(viewModel: NewsOverviewDetailsViewModel) {
@@ -60,6 +66,18 @@ final class NewsOverviewDetailsViewController: BaseViewController {
                 self?.webView.load(urlRequest)
         }
     }
+    
+    //MARK: - Try Again Button
+    /*
+     When there is a network error user will have chance to
+     try again for better UX
+     */
+    @IBAction func tryAgainButtonTapped(sender: UIButton) {
+        viewModel?.didFailTryAgain()
+        self.tryAgainButton.isHidden = true
+        self.webView.isHidden = true
+        LoadingView.show()
+    }
 }
 
 extension NewsOverviewDetailsViewController: WKNavigationDelegate {
@@ -72,6 +90,14 @@ extension NewsOverviewDetailsViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         LoadingView.hide()
         self.webView.isHidden = false
+        self.tryAgainButton.isHidden = false
+        self.showAlert(message: error.localizedDescription)
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        LoadingView.hide()
+        self.webView.isHidden = false
+        self.tryAgainButton.isHidden = false
         self.showAlert(message: error.localizedDescription)
     }
 }

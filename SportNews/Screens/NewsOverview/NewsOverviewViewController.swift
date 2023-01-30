@@ -28,6 +28,12 @@ final class NewsOverviewViewController: BaseViewController {
     
     @IBOutlet private weak var customSegmentsView: CustomSegmentsView!
     
+    @IBOutlet private weak var tryAgainButton: UIButton! {
+        willSet {
+            newValue.isHidden = true
+        }
+    }
+    
     // MARK: - Initializer
     init(viewModel: NewsOverviewViewModel) {
         self.viewModel = viewModel
@@ -44,8 +50,7 @@ final class NewsOverviewViewController: BaseViewController {
         bindUIComponents()
         viewModel?.viewDidLoad()
     }
-    
-    
+
     //MARK: - Deinit
     deinit {
         //remove observers when the viewcontroller deinitialized
@@ -128,6 +133,18 @@ final class NewsOverviewViewController: BaseViewController {
             self.tableView.reloadData()
         })
     }
+    
+    //MARK: - Try Again Button
+    /*
+     When there is a network error user will have chance to
+     try again for better UX
+     */
+    @IBAction func tryAgainButtonTapped(sender: UIButton) {
+        viewModel?.fetchNewsOverview()
+        self.tryAgainButton.isHidden = true
+        LoadingView.show()
+    }
+    
     //MARK: - END of Methods
     
     // MARK: - TableviewCell Provider
