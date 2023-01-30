@@ -37,6 +37,7 @@ class BaseViewController: UIViewController, Alertable {
     
     open func bindViewModel() {}
     
+    //common func for error popup
     open func didReceiveNetworkError(error: String) {
         showAlert(message: error)
     }
