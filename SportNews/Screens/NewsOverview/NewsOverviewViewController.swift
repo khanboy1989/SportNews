@@ -28,6 +28,8 @@ final class NewsOverviewViewController: BaseViewController {
     
     @IBOutlet private weak var customSegmentsView: CustomSegmentsView!
     
+    private let refreshControl = UIRefreshControl()
+
     // MARK: - Initializer
     init(viewModel: NewsOverviewViewModel) {
         self.viewModel = viewModel
@@ -44,8 +46,7 @@ final class NewsOverviewViewController: BaseViewController {
         bindUIComponents()
         viewModel?.viewDidLoad()
     }
-    
-    
+
     //MARK: - Deinit
     deinit {
         //remove observers when the viewcontroller deinitialized
@@ -77,11 +78,14 @@ final class NewsOverviewViewController: BaseViewController {
             case let.succes(data):
                 LoadingView.hide()
                 self?.updateNewOverviews(items: data)
+                self?.refreshControl.endRefreshing()
             case .loading:
                 LoadingView.show()
+                self?.refreshControl.endRefreshing()
             case let .error(error):
                 self?.showAlert(message: error)
                 LoadingView.hide()
+                self?.refreshControl.endRefreshing()
             case .finished:
                 printIfDebug("finished")
                 break
@@ -91,7 +95,6 @@ final class NewsOverviewViewController: BaseViewController {
                 break
             }
         }
-        
         viewModel?.categorySegmentItems.observe(on: self) {[weak self] items in
             self?.customSegmentsView.setItems(items: items)
         }
@@ -103,6 +106,8 @@ final class NewsOverviewViewController: BaseViewController {
         self.customSegmentsView.onWillChangeSelectedItem = {[weak self] selectedItem in
             self?.viewModel?.onCategoryItemChange(selectedItem)
         }
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
     }
     
     //Updates the newsoverview tableview cell depending on the received full data
@@ -128,12 +133,19 @@ final class NewsOverviewViewController: BaseViewController {
             self.tableView.reloadData()
         })
     }
+    
     //MARK: - END of Methods
     
     // MARK: - TableviewCell Provider
     private func newOverviewTableViewCellProvider(tableView: UITableView, indexPath: IndexPath , item: NewOverviewViewModel) -> UITableViewCell? {
         return NewOverviewTableViewCell.create(tableView: tableView, item: item)
     }
+
+    @objc func pullToRefresh(refreshControl: UIRefreshControl) {
+        self.viewModel?.fetchNewsOverview()
+        self.viewModel?.onCategoryItemChange(.all)
+    }
+
 }
 
 //MARK: - UITableViewDelegate

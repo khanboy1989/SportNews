@@ -15,6 +15,7 @@ UseCase injects -> Repository
 Repository injects -> DataTransferService
 
 In this project specifically the MVVM-C pattern is selected so in future when it is needed we can expand the future and enhance the flows with a clean way.
+
 Coordinators are separated for each flow in this case the project contains one flow which is NewsOverviewCoordinator and all necessary navigation actions are defined in the relevant class.
 
 NOTE: \*The application on purpose does not use the Combine/RxSwift libraries, It is implemented with custom Observable class in order to demonstrate different approach.
@@ -58,6 +59,10 @@ Note: Domain Layer should not include anything from other layers(e.g Screen — 
 
 At the top of the page you will be able to see the categories depending on the selection of the category tableview will filter the specific category. You are free to select All categories again.
 
+If specific item is clicked on the list the details will be demonstrated with url provided from the enpoin.
+
+Details View Controler contains try again option in case of any network error.
+
 <h4>Future Improvements</h4>
 
 - For future the category filtering should be dynamic. Currently it is created statically.
@@ -66,3 +71,6 @@ At the top of the page you will be able to see the categories depending on the s
 - Custom Observable class is used, we can switch to Combine/RxSwift completely
 - Adding Persistence data saving functionality by using CoreData/Realm
 - Seperating Schemes such as DEBUG, STAGE, RELEASE
+
+<h4>Requirements</h4>
+Xcode Version 14.2+ Swift 5.0+

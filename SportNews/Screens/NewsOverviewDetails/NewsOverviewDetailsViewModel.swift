@@ -11,6 +11,7 @@ import Foundation
 protocol NewsOverviewDetailsInputViewModel {
     func viewWillAppear()
     func viewDidLoad()
+    func didFailTryAgain()
 }
 
 //OUTPUT: sends the events to viewcontroller
@@ -51,4 +52,14 @@ final class DefaultNewsOverviewDetailsViewModel: NewsOverviewDetailsViewModel {
         }
     }
     
+
+    func didFailTryAgain() {
+        //did fail with network error please trigger the urlRequest again
+        if let url = URL(string: item.url) {
+            urlRequest.value = URLRequest(url: url)
+        } else {
+            urlRequest.value = nil
+        }
+    }
+
 }
