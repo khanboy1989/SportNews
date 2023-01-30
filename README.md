@@ -58,6 +58,10 @@ Note: Domain Layer should not include anything from other layers(e.g Screen — 
 
 At the top of the page you will be able to see the categories depending on the selection of the category tableview will filter the specific category. You are free to select All categories again.
 
+If specific item is clicked on the list the details will be demonstrated with url provided from the enpoin.
+
+Details View Controler contains try again option in case of any network error.
+
 <h4>Future Improvements</h4>
 
 - For future the category filtering should be dynamic. Currently it is created statically.
