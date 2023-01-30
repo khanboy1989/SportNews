@@ -22,6 +22,7 @@ internal enum Asset {
   internal enum Colors {
     internal static let appBackgroundColor = ColorAsset(name: "appBackgroundColor")
     internal static let black = ColorAsset(name: "black")
+    internal static let lightGray = ColorAsset(name: "lightGray")
     internal static let segmentSelected = ColorAsset(name: "segmentSelected")
     internal static let segmentTitleUnSelected = ColorAsset(name: "segmentTitleUnSelected")
   }

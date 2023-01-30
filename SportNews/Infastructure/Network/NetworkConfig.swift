@@ -7,6 +7,11 @@
 
 import Foundation
 
+/*
+ NetworkConfigurable class where we provide baseUrl,
+ headers and additional parameters such as apiToken
+ 
+ */
 // MARK: - NetworkConfigurable
 public protocol NetworkConfigurable {
     var baseURL: URL {get}

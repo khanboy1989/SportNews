@@ -32,6 +32,7 @@ class AppDIContainer {
 
     // MARK: - Network
     lazy var apiDataTransferService: DataTransferService = {
+        //initialize the network confif in order to ger baseUrl
         let config = ApiDataNetworkConfig(baseURL: URL(string: appConfiguration.apiBaseURL)!)
         
         let apiDataNetwork = DefaultNetworkService(config: config)
@@ -39,7 +40,6 @@ class AppDIContainer {
     }()
     
     //MARK: - DIContainer of Scenes
-    
     /**
         NewsOverviewDIContainer in this case first defined
          DIContainer and initially we have paased the DataTransferService to it as a parameter
