@@ -143,7 +143,6 @@ final class NewsOverviewViewController: BaseViewController {
 
     @objc func pullToRefresh(refreshControl: UIRefreshControl) {
         self.viewModel?.fetchNewsOverview()
-        self.viewModel?.onCategoryItemChange(.all)
     }
 
 }
