@@ -3,7 +3,8 @@
 This project is created by using MVVM-C pattern. Where is it is defined as Clean Architecture in order to avoid code duplication and make the code readable for all developers.
 
 ViewControllers are responsible to interact with user in case of any input is required by the user for example selecting an item from the list.
-ViewModels are responsible to create between ViewController and UseCases/Coordinators
+ViewModels are responsible to create bridge between ViewController and UseCases/Coordinators
+
 Coordinators are responsible to handle navigation where UseCases are responsible to request the the business logic events from the repositories.
 
 Dependency Injection Containers are used in order to be able to Inject relevant classes to necessary points.
@@ -14,9 +15,9 @@ ViewModel injects -> UseCase, Coordinators
 UseCase injects -> Repository
 Repository injects -> DataTransferService
 
-In this project specifically the MVVM-C pattern is selected so in future when it is needed we can expand the future and enhance the flows with a clean way.
+In this project specifically the MVVM-C pattern is selected so in future when it is needed we can add more features and enhance the flows with a clean way.
 
-Coordinators are separated for each flow in this case the project contains one flow which is NewsOverviewCoordinator and all necessary navigation actions are defined in the relevant class.
+Coordinators are separated for each flow in this case the project contains only one flow which is NewsOverviewCoordinator and all necessary navigation actions are defined in the relevant class.
 
 NOTE: \*The application on purpose does not use the Combine/RxSwift libraries, It is implemented with custom Observable class in order to demonstrate different approach.
 
@@ -57,9 +58,13 @@ Note: Domain Layer should not include anything from other layers(e.g Screen — 
 - Sport Mix
 - Esports
 
+<p>In case if the app does not have internet connection at the beginning, we can use pull to refresh functionality.</p>
+
 At the top of the page you will be able to see the categories depending on the selection of the category tableview will filter the specific category. You are free to select All categories again.
 
 If specific item is clicked on the list the details will be demonstrated with url provided from the enpoin.
+
+NewsOverviewViewController has pull to refresh functionality, where It will make request to server side to receive latest news. Pull to refresh can be used also for the case where the is no internet connection. User can pull to refresh and get latest sport news from the server side. 
 
 Details View Controler contains try again option in case of any network error.
 
@@ -74,3 +79,6 @@ Details View Controler contains try again option in case of any network error.
 
 <h4>Requirements</h4>
 Xcode Version 14.2+ Swift 5.0+
+
+<h3> Application's Screen Shots </h3>
+
