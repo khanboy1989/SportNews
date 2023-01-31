@@ -81,10 +81,11 @@ Details View Controler contains try again option in case of any network error.
 Xcode Version 14.2+ Swift 5.0+
 
 <h3> Application's Screen Shots </h3>
-MAIN Screen - (https://user-images.githubusercontent.com/11138262/215689825-6dd67327-d146-4a19-aef5-c2be5a4c7a4f.png)
-MAIN Screen - (With Winter Sport Selection)(https://user-images.githubusercontent.com/11138262/215689862-1ab0c4e8-549b-4f93-a3d2-e3ed1af5031c.png)
+ - MAIN Screen - (https://user-images.githubusercontent.com/11138262/215689825-6dd67327-d146-4a19-aef5-c2be5a4c7a4f.png)
 
-Details Screen - (https://user-images.githubusercontent.com/11138262/215689883-ba18a31f-f48a-42f2-b2ad-92bae7ebbfc5.png)
+ - MAIN Screen - (With Winter Sport Selection)(https://user-images.githubusercontent.com/11138262/215689862-1ab0c4e8-549b-4f93-a3d2-e3ed1af5031c.png)
+
+ - Details Screen - (https://user-images.githubusercontent.com/11138262/215689883-ba18a31f-f48a-42f2-b2ad-92bae7ebbfc5.png)
 
 
 
