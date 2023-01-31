@@ -62,7 +62,7 @@ Note: Domain Layer should not include anything from other layers(e.g Screen — 
 
 At the top of the page you will be able to see the categories depending on the selection of the category tableview will filter the specific category. You are free to select All categories again.
 
-If specific item is clicked on the list the details will be demonstrated with url provided from the enpoin.
+If specific item is clicked on the list the details will be demonstrated with url provided from the endpoint.
 
 NewsOverviewViewController has pull to refresh functionality, where It will make request to server side to receive latest news. Pull to refresh can be used also for the case where the is no internet connection. User can pull to refresh and get latest sport news from the server side.
 

@@ -57,7 +57,7 @@ class NewsOverviewViewModelTests: XCTestCase {
     func test_whenNewsOverviewUseCase_NewsDataFailed_thenUseCaseReturnsError() {
         //given
         let newsOverviewUseCaseMock = NewsOverviewUseCaseMock()
-        newsOverviewUseCaseMock.expectation = self.expectation(description: "test success case")
+        newsOverviewUseCaseMock.expectation = self.expectation(description: "test failure case")
         newsOverviewUseCaseMock.error = NewsOverViewUseCaseError.someError
         let viewModel = DefaultNewsOverviewViewModel(newsOverviewUseCase: newsOverviewUseCaseMock)
         
