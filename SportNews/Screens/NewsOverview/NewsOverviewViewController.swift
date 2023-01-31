@@ -141,9 +141,9 @@ final class NewsOverviewViewController: BaseViewController {
         return NewOverviewTableViewCell.create(tableView: tableView, item: item)
     }
 
+    //MARK: - PullToRefresh
     @objc func pullToRefresh(refreshControl: UIRefreshControl) {
         self.viewModel?.fetchNewsOverview()
-        self.viewModel?.onCategoryItemChange(.all)
     }
 
 }
@@ -156,7 +156,7 @@ extension NewsOverviewViewController: UITableViewDelegate {
         header.textLabel?.backgroundColor = Asset.Colors.lightGray.color
         header.textLabel?.textColor = UIColor.black
     }
-    
+    //MARK: - didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemIdentifier = tableViewDataSource.itemIdentifier(for: indexPath) else {
             self.showAlert(message: L10n.selectedItemError)

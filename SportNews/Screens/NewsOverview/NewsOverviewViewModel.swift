@@ -99,6 +99,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
     private let actions: NewsOverviewViewModelActions?
     private var newsLoadTask: Cancellable? { willSet { newsLoadTask?.cancel() } }
     private var allNewsItems: [DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]] = [:]
+    private var selectedCategoryItem: Section = .all
     
     //MARK: - Init
     init(newsOverviewUseCase: NewsOverviewUseCase,
@@ -141,8 +142,13 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         guard  let selectedCategoryItem = DefaultNewsOverviewViewModel.Section.allCases.first(where: { $0 == selectedItem }) else {
             return
         }
+        //create header segment items depending on selection
+        //by default it is all selected
         self.createCategorySegmentItems(selectedItem: selectedCategoryItem,categorySegmentItems: categorySegmentItems)
-        self.createSectionsForSelecteSegmentItem(for: selectedCategoryItem)
+        //keep the selected category as default
+        self.selectedCategoryItem = selectedCategoryItem
+        //prepare the sections depending on selection
+        self.createSections(for: selectedCategoryItem)
     }
     
     //OUTPUT observable with screen state that handles when the loading spinner will be shown and when the data is arrived
@@ -155,7 +161,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         newsLoadTask = newsOverviewUseCase.execute(completion: { [weak self] in
             switch $0 {
             case let.success(news):
-                self?.createSections(screenState: screenState, news: news)
+                self?.preapareRawData(screenState: screenState, news: news)
             case .failure(_):
                 screenState.value = .error(error: L10n.defaultError)
             }
@@ -166,7 +172,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
     /**
         Creates the data for viewcontroller that needs to be displayed
      */
-    private func createSections(screenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>>, news: NewsOverviewResponseDTO) {
+    private func preapareRawData(screenState: Observable<ScreenState<[DefaultNewsOverviewViewModel.Section: [NewOverviewViewModel]]>>, news: NewsOverviewResponseDTO) {
         var items: [Section: [NewOverviewViewModel]] = [:]
         
         let fussball = news.data.fussball.sorted(by: {$0.data.date! > $1.data.date! }).map{ item -> NewOverviewViewModel in
@@ -193,7 +199,7 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
         items[.esports] = esports
         
         allNewsItems = items
-        screenState.value = .succes(data: items)
+        createSections(for: selectedCategoryItem)
     }
     
     //MARK: - CreateCategorySegmentItems
@@ -207,12 +213,10 @@ final class DefaultNewsOverviewViewModel: NewsOverviewViewModel {
                 return CustomSegmentItem(title: sectionItem.title, isSelected: false, type: sectionItem)
             }
         })
-        
         categorySegmentItems.value = segmentItems
     }
     
-    private func createSectionsForSelecteSegmentItem(for selectedCategory: DefaultNewsOverviewViewModel.Section) {
-        
+    private func createSections(for selectedCategory: DefaultNewsOverviewViewModel.Section) {
         switch selectedCategory {
         case .all:
             newsScreenState.value = .succes(data: allNewsItems)
