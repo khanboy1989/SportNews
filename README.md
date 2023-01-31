@@ -64,7 +64,7 @@ At the top of the page you will be able to see the categories depending on the s
 
 If specific item is clicked on the list the details will be demonstrated with url provided from the enpoin.
 
-NewsOverviewViewController has pull to refresh functionality, where It will make request to server side to receive latest news. Pull to refresh can be used also for the case where the is no internet connection. User can pull to refresh and get latest sport news from the server side. 
+NewsOverviewViewController has pull to refresh functionality, where It will make request to server side to receive latest news. Pull to refresh can be used also for the case where the is no internet connection. User can pull to refresh and get latest sport news from the server side.
 
 Details View Controler contains try again option in case of any network error.
 
@@ -78,16 +78,20 @@ Details View Controler contains try again option in case of any network error.
 - Seperating Schemes such as DEBUG, STAGE, RELEASE
 
 <h4>Requirements</h4>
-Xcode Version 14.2+ Swift 5.0+
 
-<h3> Application's Screen Shots </h3>
+- Xcode Version 14.2+ Swift 5.0+
+
+<h4> Application's Screen Shots </h4>
  
  - MAIN Screen - (https://user-images.githubusercontent.com/11138262/215689825-6dd67327-d146-4a19-aef5-c2be5a4c7a4f.png)
 
- - MAIN Screen - (With Winter Sport Selection)(https://user-images.githubusercontent.com/11138262/215689862-1ab0c4e8-549b-4f93-a3d2-e3ed1af5031c.png)
+- MAIN Screen - (With Winter Sport Selection)(https://user-images.githubusercontent.com/11138262/215689862-1ab0c4e8-549b-4f93-a3d2-e3ed1af5031c.png)
 
- - Details Screen - (https://user-images.githubusercontent.com/11138262/215689883-ba18a31f-f48a-42f2-b2ad-92bae7ebbfc5.png)
+- Details Screen - (https://user-images.githubusercontent.com/11138262/215689883-ba18a31f-f48a-42f2-b2ad-92bae7ebbfc5.png)
 
+<h4> Git Branches </h4>
 
+- Develop: Keeps the new feature of the applicaion
+- Main: Keeps the stable version of the application
 
-
+Currently both branches are holding the same version of the application
