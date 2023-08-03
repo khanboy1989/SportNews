@@ -7,7 +7,7 @@ target 'SportNews' do
 
   # Pods for SportNews
    pod 'SwiftLint'	
-   pod 'Kingfisher', '~> 7.0'
+   pod 'Kingfisher', '7.6.2'
   target 'SportNewsTests' do
     inherit! :search_paths
     # Pods for testing
