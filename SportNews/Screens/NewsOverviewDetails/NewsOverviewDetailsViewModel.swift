@@ -52,7 +52,6 @@ final class DefaultNewsOverviewDetailsViewModel: NewsOverviewDetailsViewModel {
         }
     }
     
-
     func didFailTryAgain() {
         //did fail with network error please trigger the urlRequest again
         if let url = URL(string: item.url) {
